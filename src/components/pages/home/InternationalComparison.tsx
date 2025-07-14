@@ -28,21 +28,21 @@ interface CountryData {
 export function InternationalComparison() {
   const countriesData: CountryData[] = [
     {
-      country: 'Česká republika',
-      flag: '🇨🇿',
-      adoption_rate: 64,
-      population: '10.5M',
-      launch_year: 2018,
-      notes: 'Nejrychlejší růst v EU',
-      position: 1
-    },
-    {
       country: 'Nizozemsko',
       flag: '🇳🇱',
       adoption_rate: 45,
       population: '17.4M',
       launch_year: 2017,
       notes: 'Silná digitální kultura',
+      position: 1
+    },
+    {
+      country: 'Česká republika',
+      flag: '🇨🇿',
+      adoption_rate: 40,
+      population: '10.5M',
+      launch_year: 2018,
+      notes: 'Nejrychlejší růst v EU',
       position: 2
     },
     {
@@ -104,7 +104,7 @@ export function InternationalComparison() {
     },
     {
       year: 2025,
-      event: 'ČR dosahuje 64% adopce',
+      event: 'ČR dosahuje 40% adopce',
       icon: Crown,
       color: 'text-yellow-600'
     },
@@ -304,7 +304,7 @@ export function InternationalComparison() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
                 <Target className="w-8 h-8 text-yellow-300 mx-auto mb-3" />
-                <div className="text-xl font-bold mb-2">70%+</div>
+                <div className="text-xl font-bold mb-2">50%+</div>
                 <div className="text-slate-100 text-sm">cílová adopce do 2026</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
@@ -314,8 +314,8 @@ export function InternationalComparison() {
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
                 <Crown className="w-8 h-8 text-yellow-300 mx-auto mb-3" />
-                <div className="text-xl font-bold mb-2">#1</div>
-                <div className="text-slate-100 text-sm">udržení pozice lídra</div>
+                <div className="text-xl font-bold mb-2">#2</div>
+                <div className="text-slate-100 text-sm">posun na 1. místo</div>
               </div>
             </div>
           </div>

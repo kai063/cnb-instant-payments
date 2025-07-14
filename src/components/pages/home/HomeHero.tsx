@@ -63,7 +63,7 @@ export function HomeHero() {
               <div className="flex items-center justify-center mb-3">
                 <TrendingUp className="w-8 h-8 text-yellow-300" />
               </div>
-              <div className="text-3xl font-bold mb-2">64%</div>
+              <div className="text-3xl font-bold mb-2">40%</div>
               <div className="text-slate-100 text-sm">podíl ze všech plateb</div>
             </div>
             

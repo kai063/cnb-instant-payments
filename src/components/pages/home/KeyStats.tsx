@@ -99,8 +99,8 @@ export function KeyStats() {
     {
       icon: DollarSign,
       title: 'Podíl ze všech plateb',
-      value: `${data.key_findings.instant_share_percent}%`,
-      change: 'Více než 3/5 všech plateb',
+      value: `${Math.round(data.key_findings.instant_share_percent)}%`,
+      change: 'Více než 2/5 všech plateb',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
@@ -228,7 +228,7 @@ export function KeyStats() {
             </p>
             <div className="flex items-center justify-center gap-8 mt-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">64%</div>
+                <div className="text-2xl font-bold text-blue-600">40%</div>
                 <div className="text-sm text-gray-600">Česká republika</div>
               </div>
               <div className="text-center">

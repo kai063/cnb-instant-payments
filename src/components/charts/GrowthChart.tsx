@@ -259,15 +259,15 @@ export function GrowthChart() {
           </div>
         </div>
         <div className="bg-blue-50 p-4 rounded-lg">
-          <div className="text-blue-800 font-semibold mb-1">Bod zlomu</div>
+          <div className="text-blue-800 font-semibold mb-1">Aktuální stav</div>
           <div className="text-blue-700 text-sm">
-            Okamžité platby převážily běžné úhrady v roce 2024
+            Okamžité platby dosáhly 40% podílu v červnu 2025
           </div>
         </div>
         <div className="bg-purple-50 p-4 rounded-lg">
-          <div className="text-purple-800 font-semibold mb-1">Predikce</div>
+          <div className="text-purple-800 font-semibold mb-1">Pozice v EU</div>
           <div className="text-purple-700 text-sm">
-            Pokračující růst směřuje k 70%+ podílu do konce 2025
+            ČR patří mezi evropské lídry s dvojnásobkem EU průměru
           </div>
         </div>
       </div>
