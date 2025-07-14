@@ -28,7 +28,7 @@ export function Navigation() {
             ) : (
               <Link href="/cnb-okamzite-platby">
                 <Button variant="outline">
-                  CNB Projekt
+                  ČNB Projekt
                 </Button>
               </Link>
             )}

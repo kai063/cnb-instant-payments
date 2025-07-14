@@ -3,7 +3,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { TrendingUp, Zap, Globe } from 'lucide-react'
+import { TrendingUp, Zap, Globe, Clock, DollarSign, CheckCircle } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 
 export function HomeHero() {
@@ -46,11 +46,32 @@ export function HomeHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg md:text-xl lg:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-blue-100 mb-6 max-w-3xl mx-auto leading-relaxed"
           >
             Kompletní analýza růstu okamžitých plateb v České republice na základě 
             oficiálních dat České národní banky
           </motion.p>
+          
+          {/* Key benefits */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-wrap justify-center gap-4 mb-8"
+          >
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
+              <CheckCircle className="w-4 h-4 text-green-300" />
+              <span className="text-white font-medium">Efektivnější</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
+              <Clock className="w-4 h-4 text-blue-300" />
+              <span className="text-white font-medium">Rychlejší</span>
+            </div>
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
+              <DollarSign className="w-4 h-4 text-yellow-300" />
+              <span className="text-white font-medium">Úspornější</span>
+            </div>
+          </motion.div>
           
           {/* Key numbers */}
           <motion.div

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { HomeHero } from '@/components/pages/home/HomeHero'
 import { KeyStats } from '@/components/pages/home/KeyStats'
 import { CertisSavings } from '@/components/pages/home/CertisSavings'
-import { GrowthChart } from '@/components/charts/GrowthChart'
+import { GrowthChartRecharts } from '@/components/charts/GrowthRecharts'
 import { TimelineSection } from '@/components/pages/home/TimelineSection'
 import { BankingLandscape } from '@/components/pages/home/BankingLadscape'
 import { InternationalComparison } from '@/components/pages/home/InternationalComparison'
@@ -28,16 +28,8 @@ export default function HomePage() {
       {/* Hero sekce */}
       <HomeHero />
       
-      {/* Klíčové statistiky */}
-      <Suspense fallback={<LoadingSpinner />}>
-        <KeyStats />
-      </Suspense>
-      
-      {/* CERTIS úspory */}
-      <CertisSavings />
-      
-      {/* Hlavní graf růstu */}
-      <section className="py-12 md:py-20 bg-white">
+      {/* Hlavní graf růstu - jak rychle rostou */}
+      <section className="py-12 md:py-20 bg-gradient-to-r from-blue-50 to-blue-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-blue-900 mb-4">
@@ -49,25 +41,32 @@ export default function HomePage() {
           </div>
           
           <Suspense fallback={<LoadingSpinner />}>
-            <GrowthChart />
+            <GrowthChartRecharts />
           </Suspense>
         </div>
       </section>
       
-      {/* Časová osa milníků */}
+      {/* Mezinárodní srovnání - jak si vedeme v Evropě */}
+      <section className="py-12 md:py-20 bg-white">
+        <InternationalComparison />
+      </section>
+      
+      
+      {/* Klíčové statistiky - aktuální stav */}
+      <Suspense fallback={<LoadingSpinner />}>
+        <KeyStats />
+      </Suspense>
+            {/* Časová osa milníků - jak se to vyvíjelo */}
       <section className="py-12 md:py-20 bg-gradient-to-r from-blue-50 to-blue-100">
         <TimelineSection />
       </section>
-      
-      {/* Banking landscape */}
+
+      {/* Banking landscape - kdo podporuje */}
       <section className="py-12 md:py-20 bg-white">
         <BankingLandscape />
       </section>
       
-      {/* Mezinárodní srovnání */}
-      <section className="py-12 md:py-20 bg-gradient-to-r from-blue-50 to-blue-100">
-        <InternationalComparison />
-      </section>
+
       
       {/* Footer se zdroji dat */}
       <Footer />

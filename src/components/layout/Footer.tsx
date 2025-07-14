@@ -41,7 +41,6 @@ export function Footer() {
                 <li><span className="text-green-400">Matplotlib</span> - Plotting library</li>
                 <li><span className="text-green-400">Seaborn</span> - Statistical visualization</li>
                 <li><span className="text-green-400">Jupyter</span> - Interactive analysis</li>
-                <li><span className="text-green-400">Beautiful Soup</span> - Web scraping</li>
               </ul>
             </div>
 
@@ -57,8 +56,7 @@ export function Footer() {
                 <li><span className="text-purple-400">Node.js</span> - Runtime environment</li>
                 <li><span className="text-purple-400">PostCSS</span> - CSS processing</li>
                 <li><span className="text-purple-400">VS Code</span> - Development IDE</li>
-                <li><span className="text-purple-400">Claude Sonnet</span> - AI assistance</li>
-                <li><span className="text-purple-400">Vercel</span> - Deployment platform</li>
+                <li><span className="text-purple-400">Coolify</span> - Deployment platform</li>
               </ul>
             </div>
           </div>

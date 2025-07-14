@@ -28,29 +28,29 @@ export function CertisSavings() {
   const advantages = [
     {
       icon: Banknote,
-      title: 'Nejnižší poplatky na trhu',
-      description: 'Pouze 0,10 Kč za transakci oproti vyšším poplatkům u karet a zahraničních služeb',
+      title: 'Ušetříte na poplatcích',
+      description: 'Jen 10 haléřů za převod místo několika korun u karet nebo desítek korun u PayPal',
       color: 'text-blue-700',
       bgColor: 'bg-blue-100'
     },
     {
       icon: Zap,
-      title: 'Okamžité zúčtování 24/7',
-      description: 'Převody za několik sekund, nonstop včetně víkendů a svátků',
+      title: 'Převod za pár sekund',
+      description: 'Peníze dojdou okamžitě, i o víkendu a svátcích. Žádné čekání do druhého dne',
       color: 'text-blue-600',
       bgColor: 'bg-blue-50'
     },
     {
       icon: ShieldCheck,
-      title: 'Národní infrastruktura',
-      description: 'Provozováno Českou národní bankou, vysoká bezpečnost a spolehlivost',
+      title: 'Bezpečné a spolehlivé',
+      description: 'Provozuje Česká národní banka - nejvyšší možná úroveň bezpečnosti',
       color: 'text-blue-800',
       bgColor: 'bg-blue-200'
     },
     {
       icon: Building2,
-      title: 'Finanční suverenita',
-      description: 'Snížení závislosti na zahraničních platebních systémech',
+      title: 'Dostupné ve většině bank',
+      description: 'Podporuje 14 z největších českých bank, pravděpodobně i ta vaše',
       color: 'text-blue-900',
       bgColor: 'bg-blue-300'
     }
@@ -111,14 +111,14 @@ export function CertisSavings() {
           >
             <Badge variant="outline" className="mb-4">
               <PiggyBank className="w-4 h-4 mr-2" />
-              Ekonomické výhody
+              Praktické výhody
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Proč je CERTIS výhodný pro českou ekonomiku
+              Proč jsou okamžité platby lepší volbou?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Systém okamžitých plateb CERTIS přináší významné úspory díky nejnižším poplatkům 
-              na trhu a posiluje finanční nezávislost České republiky.
+              Okamžité platby vám ušetří peníze, čas i starosti. Převedete peníze za sekundy, 
+              bez výrazných poplatků a kdykoliv potřebujete.
             </p>
           </motion.div>
         </div>

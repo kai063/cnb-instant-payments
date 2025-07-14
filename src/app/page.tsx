@@ -53,8 +53,8 @@ export default function HomePage() {
                 Project Engineer & Economics Student
               </p>
               <p className="text-lg text-gray-500 max-w-2xl">
-                Student ekonomie na UK IES s rozsáhlými zkušenostmi v oblasti webových technologií. 
-                Kombinuji analytické myšlení s praktickými dovednostmi ve vývoji moderních aplikací.
+                Budoucí student ekonomie na UK IES s rozsáhlými zkušenostmi v oblasti webových technologií. 
+                Kombinuji analytické myšlení s praktickými dovednostmi. 
               </p>
               
               {/* Kontaktní informace přímo v hlavičce */}
@@ -180,25 +180,27 @@ export default function HomePage() {
         {/* Projects */}
         <div className="mb-20">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Projekty</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-2xl mx-auto">
             <Card className="hover:shadow-lg transition-shadow group">
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <BarChart3 className="w-5 h-5 text-blue-600" />
-                  <CardTitle>České okamžité platby</CardTitle>
+                  <CardTitle className="text-xl">České okamžité platby</CardTitle>
                 </div>
                 <CardDescription>Analýza růstu okamžitých plateb v ČR</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
                   Interaktivní analýza dat České národní banky ukazující fenomenální růst 
-                  okamžitých plateb od roku 2018 do roku 2025.
+                  okamžitých plateb od roku 2018 do roku 2025. Kompletní vizualizace dat, 
+                  mezinárodní srovnání a analýza bankovního sektoru.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <Badge variant="outline">Next.js</Badge>
                   <Badge variant="outline">TypeScript</Badge>
-                  <Badge variant="outline">Chart.js</Badge>
+                  <Badge variant="outline">Recharts</Badge>
                   <Badge variant="outline">Data Analysis</Badge>
+                  <Badge variant="outline">Framer Motion</Badge>
                 </div>
                 <Link href="/cnb-okamzite-platby">
                   <Button className="w-full group-hover:bg-blue-700">Zobrazit projekt</Button>
@@ -206,29 +208,9 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            {/* Placeholder pro další projekty */}
-            <Card className="hover:shadow-lg transition-shadow opacity-50">
-              <CardHeader>
-                <div className="flex items-center gap-2 mb-2">
-                  <Code2 className="w-5 h-5 text-gray-400" />
-                  <CardTitle>Další projekt</CardTitle>
-                </div>
-                <CardDescription>Popis dalšího projektu</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-4">
-                  Zde můžete doplnit informace o dalším vašem projektu.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="outline">Technologie</Badge>
-                  <Badge variant="outline">Framework</Badge>
-                </div>
-                <Button className="w-full" disabled>
-                  Připravuje se
-                </Button>
-              </CardContent>
-            </Card>
-
+            <div className="text-center mt-8">
+              <p className="text-gray-600">Další projekty se připravují</p>
+            </div>
           </div>
         </div>
 
@@ -251,7 +233,11 @@ export default function HomePage() {
                     <CardHeader>
                       <div className="flex justify-between items-start">
                         <div>
-                          <CardTitle>Project Engineer | MEUI Creative</CardTitle>
+                          <CardTitle>
+                            <a href="https://meui.cz/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
+                              Project Engineer | MEUI Creative
+                            </a>
+                          </CardTitle>
                           <CardDescription>09/2022 - současnost</CardDescription>
                         </div>
                       </div>

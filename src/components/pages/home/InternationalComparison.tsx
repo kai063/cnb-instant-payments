@@ -197,6 +197,8 @@ export function InternationalComparison() {
                 className={`flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 p-3 md:p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-md ${
                   country.country === 'Česká republika'
                     ? 'bg-gradient-to-r from-blue-600 to-blue-700 border-blue-800 text-white shadow-lg ring-2 ring-blue-500 ring-opacity-50'
+                    : country.country === 'EU průměr'
+                    ? 'bg-gradient-to-r from-blue-50 to-blue-50 border-blue-200 ring-1 ring-blue-300 ring-opacity-50'
                     : country.position === 1 
                     ? 'bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300' 
                     : 'bg-white border-gray-200'
@@ -237,19 +239,21 @@ export function InternationalComparison() {
                 <div className="flex-1 mx-0 sm:mx-6 w-full sm:w-auto">
                   <div className="flex justify-between items-center mb-1 md:mb-2">
                     <span className={`text-xs md:text-sm ${
-                      country.country === 'Česká republika' ? 'text-blue-100' : 'text-gray-600'
+                      country.country === 'Česká republika' ? 'text-blue-100' : 'text-white-600'
                     }`}>Adopce</span>
                     <span className={`font-semibold text-sm md:text-base ${
-                      country.country === 'Česká republika' ? 'text-white' : 'text-gray-900'
+                      country.country === 'Česká republika' ? 'text-white' : 'text-white'
                     }`}>
                       {country.adoption_rate}%
                     </span>
                   </div>
                   <Progress 
                     value={country.adoption_rate} 
-                    className={`h-2 md:h-3 ${
+                    className={`h-2 md:h-3 bg-white ${
                       country.country === 'Česká republika'
-                        ? '[&>div]:bg-white [&>div]:shadow-sm'
+                        ? '[&>div]:bg-blue-400'
+                        : country.country === 'EU průměr'
+                        ? '[&>div]:bg-blue-400'
                         : ''
                     }`}
                   />
