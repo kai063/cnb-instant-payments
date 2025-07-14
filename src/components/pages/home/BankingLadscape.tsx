@@ -6,13 +6,10 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Progress } from '@/components/ui/progress'
 import { 
   Building2, 
-  CheckCircle, 
-  XCircle, 
-  TrendingUp,
-  DollarSign
+  CheckCircle,
+  XCircle
 } from 'lucide-react'
 
 interface BankData {
@@ -56,9 +53,9 @@ export function BankingLandscape() {
       <div className="container mx-auto px-4">
         <div className="animate-pulse">
           <div className="h-8 bg-gray-200 rounded mb-8 w-1/3 mx-auto"></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-40 bg-gray-200 rounded"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="h-32 bg-gray-200 rounded"></div>
             ))}
           </div>
         </div>
@@ -82,7 +79,6 @@ export function BankingLandscape() {
         ? 'follower' as const
         : 'late' as const
     })),
-    // Banky bez podpory
     {
       nazev: 'Trinity Bank',
       kod: '2070',
@@ -90,31 +86,31 @@ export function BankingLandscape() {
       supports_instant: false,
       market_position: 'small' as const,
       adoption_status: 'none' as const
-    },
-    {
-      nazev: 'UniCredit Bank',
-      kod: '2700',
-      limit_kc: 0,
-      supports_instant: false,
-      market_position: 'medium' as const,
-      adoption_status: 'none' as const
     }
   ]
 
-  const supportingBanks = banksData.filter(b => b.supports_instant)
-  const nonSupportingBanks = banksData.filter(b => !b.supports_instant)
-  const coveragePercent = Math.round((supportingBanks.length / banksData.length) * 100)
+  // Sort banks by limit (descending) and then by support status
+  const sortedBanks = banksData.sort((a, b) => {
+    if (a.supports_instant && !b.supports_instant) return -1
+    if (!a.supports_instant && b.supports_instant) return 1
+    return b.limit_kc - a.limit_kc
+  })
 
-  const limitRanges = [
-    { label: '50K - 100K Kč', count: supportingBanks.filter(b => b.limit_kc <= 100000).length, color: 'bg-yellow-400' },
-    { label: '400K Kč', count: supportingBanks.filter(b => b.limit_kc === 400000).length, color: 'bg-blue-400' },
-    { label: '2.5M Kč', count: supportingBanks.filter(b => b.limit_kc === 2500000).length, color: 'bg-green-400' }
-  ]
+  const supportingBanks = banksData.filter(b => b.supports_instant)
+  const coveragePercent = Math.round((supportingBanks.length / banksData.length) * 100)
+  
+  const getLimitCategory = (limit: number) => {
+    if (limit >= 2000000) return { label: 'Vysoký', color: 'text-white bg-blue-700 border-blue-800' }
+    if (limit >= 400000) return { label: 'Standardní', color: 'text-blue-700 bg-blue-100 border-blue-300' }
+    if (limit > 0) return { label: 'Nízký', color: 'text-blue-600 bg-blue-50 border-blue-200' }
+    return { label: 'Nepodporuje', color: 'text-gray-600 bg-gray-100 border-gray-300' }
+  }
+
 
   return (
     <div className="container mx-auto px-4">
       {/* Header */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,173 +122,141 @@ export function BankingLandscape() {
             Bankovní ekosystém
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Podporující banky a limity
+            Podpora okamžitých plateb
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Přehled českých bank a jejich přístupu k okamžitým platbám
+            Aktuální stav podpory okamžitých plateb v českém bankovním sektoru podle ČNB dat
           </p>
         </motion.div>
       </div>
 
-      {/* Overview stats */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16"
-      >
-        <Card className="p-6 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <CheckCircle className="w-8 h-8 text-green-600" />
-          </div>
-          <div className="text-3xl font-bold text-gray-900 mb-2">
-            {supportingBanks.length}
-          </div>
-          <div className="text-gray-600">bank podporuje</div>
-        </Card>
-
-        <Card className="p-6 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <XCircle className="w-8 h-8 text-red-500" />
-          </div>
-          <div className="text-3xl font-bold text-gray-900 mb-2">
-            {nonSupportingBanks.length}
-          </div>
-          <div className="text-gray-600">bank nepodporuje</div>
-        </Card>
-
-        <Card className="p-6 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <TrendingUp className="w-8 h-8 text-blue-600" />
-          </div>
-          <div className="text-3xl font-bold text-gray-900 mb-2">
-            {coveragePercent}%
-          </div>
-          <div className="text-gray-600">pokrytí trhu</div>
-        </Card>
-
-        <Card className="p-6 text-center">
-          <div className="flex items-center justify-center mb-4">
-            <DollarSign className="w-8 h-8 text-purple-600" />
-          </div>
-          <div className="text-3xl font-bold text-gray-900 mb-2">
-            2.5M
-          </div>
-          <div className="text-gray-600">max limit Kč</div>
-        </Card>
-      </motion.div>
-
-      {/* Banks grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        <div className="lg:col-span-3">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-            Banky podporující okamžité platby
-          </h3>
-        </div>
-
-        {supportingBanks.map((bank, index) => (
-          <motion.div
-            key={bank.kod}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Card className="p-6 hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-green-500">
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-1">
-                    {bank.nazev}
-                  </h4>
-                  <div className="text-sm text-gray-500">
-                    Kód: {bank.kod}
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
-                  {bank.rok_zavedeni === 2019 && (
-                    <Badge variant="outline" className="text-xs">
-                      Průkopník
-                    </Badge>
-                  )}
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Limit na platbu:</span>
-                  <span className="font-semibold text-gray-900">
-                    {bank.limit_kc.toLocaleString('cs-CZ')} Kč
-                  </span>
-                </div>
-
-                {bank.rok_zavedeni && (
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">Zavedeno:</span>
-                    <span className="font-semibold text-gray-900">
-                      {bank.rok_zavedeni}
-                    </span>
-                  </div>
-                )}
-
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Pozice:</span>
-                  <Badge variant={
-                    bank.market_position === 'major' ? 'default' : 
-                    bank.market_position === 'medium' ? 'secondary' : 'outline'
-                  }>
-                    {bank.market_position === 'major' ? 'Velká banka' : 
-                     bank.market_position === 'medium' ? 'Střední banka' : 'Malá banka'}
-                  </Badge>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Limit analysis */}
+      {/* Banks table */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true }}
+        className="mb-12"
       >
-        <Card className="p-8">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-            Analýza limitů okamžitých plateb
-          </h3>
+        <Card className="p-6">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Přehled bank a jejich limitů
+            </h3>
+            <p className="text-sm text-gray-600">
+              Kompletní seznam všech bank s podporou okamžitých plateb a jejich limity
+            </p>
+          </div>
           
-          <div className="space-y-6">
-            {limitRanges.map((range, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <div className="w-32 text-sm font-medium text-gray-700">
-                  {range.label}
-                </div>
-                <div className="flex-1">
-                  <Progress 
-                    value={(range.count / supportingBanks.length) * 100} 
-                    className="h-3"
-                  />
-                </div>
-                <div className="w-20 text-sm text-gray-600">
-                  {range.count} bank{range.count !== 1 ? '' : 'a'}
-                </div>
-              </div>
-            ))}
+          {/* Summary stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+            <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 text-center border border-blue-200">
+              <div className="text-xl font-bold text-blue-700">{supportingBanks.length}</div>
+              <div className="text-sm text-blue-600">Bank podporuje</div>
+            </div>
+            <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg p-4 text-center border border-blue-300">
+              <div className="text-xl font-bold text-blue-800">{coveragePercent}%</div>
+              <div className="text-sm text-blue-700">Pokrytí trhu</div>
+            </div>
+            <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-4 text-center border border-blue-800">
+              <div className="text-xl font-bold text-white">2,5M</div>
+              <div className="text-sm text-blue-100">Max. limit (Kč)</div>
+            </div>
+            <div className="bg-gradient-to-r from-blue-700 to-blue-800 rounded-lg p-4 text-center border border-blue-900">
+              <div className="text-xl font-bold text-white">2019</div>
+              <div className="text-sm text-blue-100">První adopce</div>
+            </div>
           </div>
 
-          <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-            <h4 className="font-semibold text-blue-900 mb-2">
-              Pozorování o limitech
-            </h4>
-            <ul className="text-blue-800 text-sm space-y-1">
-              <li>• Většina bank používá standardní limit 400,000 Kč</li>
-              <li>• ČSOB nabízí nejvyšší limit 2,5 milionu Kč</li>
-              <li>• Konzervativnější banky začínají s nižšími limity</li>
-              <li>• Trend směřuje k postupnému zvyšování limitů</li>
-            </ul>
+          {/* Banks table */}
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-blue-200 bg-gradient-to-r from-blue-50 to-blue-100">
+                  <th className="text-left py-3 px-4 font-semibold text-blue-900">Banka</th>
+                  <th className="text-center py-3 px-4 font-semibold text-blue-900">Podpora</th>
+                  <th className="text-right py-3 px-4 font-semibold text-blue-900">Limit</th>
+                  <th className="text-center py-3 px-4 font-semibold text-blue-900">Kategorie</th>
+                  <th className="text-center py-3 px-4 font-semibold text-blue-900">Rok zavedení</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedBanks.map((bank, index) => {
+                  const category = getLimitCategory(bank.limit_kc)
+                  return (
+                    <tr key={index} className="border-b border-blue-100 hover:bg-blue-50/30">
+                      <td className="py-3 px-4">
+                        <div className="font-medium text-gray-900">{bank.nazev}</div>
+                        <div className="text-sm text-gray-500">{bank.kod}</div>
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        {bank.supports_instant ? (
+                          <CheckCircle className="w-5 h-5 text-green-500 mx-auto" />
+                        ) : (
+                          <XCircle className="w-5 h-5 text-red-500 mx-auto" />
+                        )}
+                      </td>
+                      <td className="py-3 px-4 text-right">
+                        {bank.supports_instant ? (
+                          <span className="font-semibold text-gray-900">
+                            {bank.limit_kc >= 1000000 
+                              ? `${(bank.limit_kc / 1000000).toFixed(1)}M Kč`
+                              : `${(bank.limit_kc / 1000).toLocaleString('cs-CZ')}K Kč`
+                            }
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 text-sm">—</span>
+                        )}
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        <Badge className={`text-xs ${category.color} border`}>
+                          {category.label}
+                        </Badge>
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        <span className="text-sm text-blue-600">
+                          {bank.rok_zavedeni || '—'}
+                        </span>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      </motion.div>
+
+      {/* Key insights */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <Card className="p-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-800">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">
+            Klíčová pozorování
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold text-blue-100 mb-3">Adopce a limity</h4>
+              <ul className="text-blue-50 text-sm space-y-2">
+                <li>• Maximální limit systému CERTIS: 2,5 mil Kč (ČNB)</li>
+                <li>• Banky mohou stanovit nižší odchozí limity</li>
+                <li>• Všechny banky musí přijmout platby do max. limitu</li>
+                <li>• Okamžité zúčtování za sekundy, 24/7</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-blue-100 mb-3">Stav trhu</h4>
+              <ul className="text-blue-50 text-sm space-y-2">
+                <li>• UniCredit Bank se připojila jako poslední velká banka</li>
+                <li>• Trinity Bank zatím okamžité platby nepodporuje</li>
+                <li>• Air Bank byla průkopníkem (2019)</li>
+                <li>• {supportingBanks.length}/{banksData.length} bank podporuje okamžité platby</li>
+              </ul>
+            </div>
           </div>
         </Card>
       </motion.div>

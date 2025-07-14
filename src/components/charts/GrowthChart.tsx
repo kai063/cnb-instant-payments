@@ -107,7 +107,7 @@ export function GrowthChart() {
     type: 'scatter' as const,
     mode: 'lines' as const,
     name: 'Okamžité platby',
-    line: { color: '#dc2626', width: 3 },
+    line: { color: '#1d4ed8', width: 3 },
     hovertemplate: '%{y:,.0f} okamžitých plateb<br>%{x}<extra></extra>'
   }
 
@@ -118,8 +118,8 @@ export function GrowthChart() {
     type: 'scatter' as const,
     mode: 'lines+markers' as const,
     name: 'Podíl okamžitých plateb',
-    line: { color: '#059669', width: 3 },
-    marker: { size: 4, color: '#059669' },
+    line: { color: '#2563eb', width: 3 },
+    marker: { size: 4, color: '#2563eb' },
     hovertemplate: '%{y:.1f}% okamžitých plateb<br>%{x}<extra></extra>'
   }
 
@@ -130,8 +130,8 @@ export function GrowthChart() {
     type: 'scatter' as const,
     mode: 'lines+markers' as const,
     name: 'Okamžité platby (log)',
-    line: { color: '#7c3aed', width: 3 },
-    marker: { size: 3, color: '#7c3aed' },
+    line: { color: '#1e40af', width: 3 },
+    marker: { size: 3, color: '#1e40af' },
     hovertemplate: '%{y:,.0f} okamžitých plateb<br>%{x}<extra></extra>'
   }
 
@@ -142,7 +142,7 @@ export function GrowthChart() {
     type: 'scatter' as const,
     mode: 'lines' as const,
     name: 'Denní obrat',
-    line: { color: '#ea580c', width: 2 },
+    line: { color: '#1e3a8a', width: 2 },
     hovertemplate: '%{y:.0f} mld Kč<br>%{x}<extra></extra>'
   }
 
@@ -172,25 +172,25 @@ export function GrowthChart() {
   }
 
   return (
-    <Card className="p-6">
-      <div className="mb-6">
-        <div className="flex items-center gap-3 mb-2">
-          <h3 className="text-2xl font-bold text-gray-900">
+    <Card className="p-8 bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200">
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-3">
+          <h3 className="text-3xl font-bold text-blue-900">
             Vývoj okamžitých plateb v čase
           </h3>
-          <Badge variant="outline">2018-2025</Badge>
+          <Badge className="bg-blue-600 text-white border-blue-700">2018-2025</Badge>
         </div>
-        <p className="text-gray-600">
+        <p className="text-blue-700 text-lg">
           Interaktivní grafy zobrazující exponenciální růst okamžitých plateb v České republice
         </p>
       </div>
 
       <Tabs defaultValue="absolute" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="absolute">Absolutní počty</TabsTrigger>
-          <TabsTrigger value="share">Podíl (%)</TabsTrigger>
-          <TabsTrigger value="log">Log škála</TabsTrigger>
-          <TabsTrigger value="turnover">Obrat</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-4 bg-blue-200">
+          <TabsTrigger value="absolute" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Absolutní počty</TabsTrigger>
+          <TabsTrigger value="share" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Podíl (%)</TabsTrigger>
+          <TabsTrigger value="log" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Log škála</TabsTrigger>
+          <TabsTrigger value="turnover" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Obrat</TabsTrigger>
         </TabsList>
 
         <TabsContent value="absolute" className="mt-6">
@@ -252,21 +252,21 @@ export function GrowthChart() {
 
       {/* Insights */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-green-50 p-4 rounded-lg">
-          <div className="text-green-800 font-semibold mb-1">Hlavní trend</div>
-          <div className="text-green-700 text-sm">
+        <div className="bg-gradient-to-r from-blue-100 to-blue-200 p-5 rounded-xl border border-blue-300">
+          <div className="text-blue-900 font-semibold mb-2">Hlavní trend</div>
+          <div className="text-blue-800 text-sm">
             Exponenciální růst od 2019 s accelerací v roce 2024-2025
           </div>
         </div>
-        <div className="bg-blue-50 p-4 rounded-lg">
-          <div className="text-blue-800 font-semibold mb-1">Aktuální stav</div>
-          <div className="text-blue-700 text-sm">
-            Okamžité platby dosáhly 40% podílu v červnu 2025
+        <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-5 rounded-xl border border-blue-800">
+          <div className="text-white font-semibold mb-2">Aktuální stav</div>
+          <div className="text-blue-100 text-sm">
+            Okamžité platby dosáhly 37% podílu v červnu 2025
           </div>
         </div>
-        <div className="bg-purple-50 p-4 rounded-lg">
-          <div className="text-purple-800 font-semibold mb-1">Pozice v EU</div>
-          <div className="text-purple-700 text-sm">
+        <div className="bg-gradient-to-r from-blue-200 to-blue-300 p-5 rounded-xl border border-blue-400">
+          <div className="text-blue-900 font-semibold mb-2">Pozice v EU</div>
+          <div className="text-blue-800 text-sm">
             ČR patří mezi evropské lídry s dvojnásobkem EU průměru
           </div>
         </div>

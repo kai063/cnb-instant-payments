@@ -90,16 +90,20 @@ export default function HomePage() {
               <CardContent>
                 <div className="space-y-2">
                   {[
-                    { icon: '⚛️', name: 'React' },
-                    { icon: '▲', name: 'Next.js' },
-                    { icon: '🟨', name: 'JavaScript' },
-                    { icon: '🎨', name: 'Figma' },
-                    { icon: '🟢', name: 'Node.js' },
-                    { icon: '🍃', name: 'Photoshop' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', name: 'React' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg', name: 'Next.js' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', name: 'JavaScript' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', name: 'Figma' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', name: 'Node.js' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-line.svg', name: 'Photoshop' },
                     { icon: '📦', name: 'Payload CMS' }
                   ].map((skill) => (
                     <div key={skill.name} className="flex items-center gap-2 text-sm">
-                      <span>{skill.icon}</span>
+                      {skill.icon.startsWith('http') ? (
+                        <img src={skill.icon} alt={skill.name} className="w-5 h-5" />
+                      ) : (
+                        <span>{skill.icon}</span>
+                      )}
                       <span>{skill.name}</span>
                     </div>
                   ))}
@@ -117,15 +121,19 @@ export default function HomePage() {
               <CardContent>
                 <div className="space-y-2">
                   {[
-                    { icon: '🐍', name: 'Python' },
-                    { icon: '🐼', name: 'Pandas' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', name: 'Python' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg', name: 'Pandas' },
                     { icon: '📊', name: 'Matplotlib & Plotly' },
-                    { icon: '📓', name: 'Jupyter Notebook' },
-                    { icon: '📈', name: 'Google Analytics' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg', name: 'Jupyter Notebook' },
+                    { icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg', name: 'Google Analytics' },
                     { icon: '💼', name: 'MS Office 365' },
                   ].map((skill) => (
                     <div key={skill.name} className="flex items-center gap-2 text-sm">
-                      <span>{skill.icon}</span>
+                      {skill.icon.startsWith('http') ? (
+                        <img src={skill.icon} alt={skill.name} className="w-5 h-5" />
+                      ) : (
+                        <span>{skill.icon}</span>
+                      )}
                       <span>{skill.name}</span>
                     </div>
                   ))}
@@ -267,7 +275,7 @@ export default function HomePage() {
                   <Card className="flex-1">
                     <CardHeader>
                       <CardTitle>Univerzita Karlova, IES</CardTitle>
-                      <CardDescription>2025-2029</CardDescription>
+                      <CardDescription>2025</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <p className="text-gray-600 text-sm">
@@ -371,18 +379,35 @@ export default function HomePage() {
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <Activity className="w-6 h-6 text-orange-600" />
-                  <CardTitle>Sportovní aktivity</CardTitle>
+                  <CardTitle>Sportovní aktivity a zájmy</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   <div className="flex items-center gap-2">
                     <Bike className="w-4 h-4 text-gray-600" />
-                    <span className="text-gray-600">Horská cyklistika</span>
+                    <span className="text-gray-600 text-sm">Horská cyklistika</span>
                   </div>
-                  <Badge variant="outline">Box</Badge>
-                  <Badge variant="outline">Házená</Badge>
-                  <Badge variant="outline">Posilování</Badge>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">🥊</span>
+                    <span className="text-gray-600 text-sm">Box</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">🤾‍♂️</span>
+                    <span className="text-gray-600 text-sm">Házená</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">💪</span>
+                    <span className="text-gray-600 text-sm">Posilování</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">♟️</span>
+                    <span className="text-gray-600 text-sm">Šachy</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">✈️</span>
+                    <span className="text-gray-600 text-sm">Cestování</span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
