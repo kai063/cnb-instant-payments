@@ -1,0 +1,95 @@
+{
+  "recent_stats": {
+    "duben_2025": {
+      "okamzite_platby_denni": 1580000,
+      "bezne_platby_denni": 2690000,
+      "podil_okamzitych": 37,
+      "zdroj": "ČNB web - duben 2025"
+    },
+    "cerven_2025": {
+      "instagram_podil": 40,
+      "zdroj": "ČNB Instagram - červen 2025"
+    }
+  },
+  "annual_stats": {
+    "2024": {
+      "celkem_polozek": 983200000,
+      "celkova_hodnota_mld": 386505,
+      "denni_prumer_polozek": 3900000,
+      "denni_prumer_hodnota_mld": 1534,
+      "zdroj": "ČNB statistické údaje 2024"
+    },
+    "2023": {
+      "celkem_polozek": 910300000,
+      "celkova_hodnota_mld": 329471,
+      "denni_prumer_polozek": 3640000,
+      "denni_prumer_hodnota_mld": 1318,
+      "zdroj": "ČNB statistické údaje 2023"
+    }
+  },
+  "registry_platby_na_kontakt": {
+    "cerven_2025": 366000,
+    "brezen_2025": 370000,
+    "zari_2024": 386000
+  },
+  "banky_okamzite_platby": [
+    {
+      "nazev": "Air Bank",
+      "kod": "3030",
+      "limit_kc": 50000,
+      "rok_zavedeni": 2019
+    },
+    {
+      "nazev": "Česká spořitelna",
+      "kod": "0800",
+      "limit_kc": 400000,
+      "rok_zavedeni": 2019
+    },
+    {
+      "nazev": "CREDITAS",
+      "kod": "2250",
+      "limit_kc": 400000
+    },
+    {
+      "nazev": "ČSOB",
+      "kod": "0300",
+      "limit_kc": 2500000
+    },
+    {
+      "nazev": "Fio banka",
+      "kod": "2010",
+      "limit_kc": 100000
+    },
+    {
+      "nazev": "J&T Banka",
+      "kod": "5800",
+      "limit_kc": 400000
+    },
+    {
+      "nazev": "Komerční banka",
+      "kod": "0100",
+      "limit_kc": 400000
+    },
+    {
+      "nazev": "mBank",
+      "kod": "6210",
+      "limit_kc": 400000
+    },
+    {
+      "nazev": "MONETA",
+      "kod": "0600",
+      "limit_kc": 400000
+    },
+    {
+      "nazev": "Raiffeisenbank",
+      "kod": "5500",
+      "limit_kc": 400000
+    }
+  ],
+  "milniky": {
+    "2018": "Spuštění okamžitých plateb (konec roku)",
+    "2019": "První banky začínají nabízet (Air Bank, Česká spořitelna)",
+    "2025": "37-40% všech plateb je okamžitých",
+    "2027": "Povinnost okamžitých plateb v EUR"
+  }
+}

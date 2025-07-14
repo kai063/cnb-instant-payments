@@ -1,0 +1,55 @@
+{
+  "prvni_mesic": "2019-01",
+  "posledni_mesic": "2025-06",
+  "pocet_mesicu": 78,
+  "okamzite_platby": {
+    "prvni": 19.0,
+    "posledni": 1625473.0,
+    "maximum": 1625473.0,
+    "prumer": 696238.9230769231
+  },
+  "podil_procenta": {
+    "prvni": 0.0004734071198727699,
+    "posledni": 42.1188313969912,
+    "maximum": 42.1188313969912,
+    "prumer": 17.01499399765966
+  },
+  "rust_nasobek": 85551.21052631579,
+  "meziroční_rust": [
+    {
+      "rok": 2019,
+      "prumer_okamzite": 39748.0,
+      "prumer_podil": 0.8987568690598859
+    },
+    {
+      "rok": 2020,
+      "prumer_okamzite": 353918.75,
+      "prumer_podil": 8.864078900199983
+    },
+    {
+      "rok": 2021,
+      "prumer_okamzite": 526171.5,
+      "prumer_podil": 12.86773730695923
+    },
+    {
+      "rok": 2022,
+      "prumer_okamzite": 686090.4166666666,
+      "prumer_podil": 16.54214935118318
+    },
+    {
+      "rok": 2023,
+      "prumer_okamzite": 952356.8333333334,
+      "prumer_podil": 23.162155051423387
+    },
+    {
+      "rok": 2024,
+      "prumer_okamzite": 1228896.5,
+      "prumer_podil": 30.12354252625146
+    },
+    {
+      "rok": 2025,
+      "prumer_okamzite": 1476742.0,
+      "prumer_podil": 36.278081959421236
+    }
+  ]
+}

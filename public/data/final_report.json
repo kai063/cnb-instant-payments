@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "created": "2025-07-14T03:51:31.452826",
+    "data_range": "2008-01 až 2025-06",
+    "total_months": 210,
+    "source": "ČNB CERTIS statistiky"
+  },
+  "key_findings": {
+    "current_month": "2025-06",
+    "instant_payments_daily": 1625473,
+    "regular_payments_daily": 2439049,
+    "instant_share_percent": 42.1,
+    "daily_turnover_billions": 1474.0
+  },
+  "growth_summary": {
+    "prvni_mesic": "2019-01",
+    "posledni_mesic": "2025-06",
+    "pocet_mesicu": 78,
+    "okamzite_platby": {
+      "prvni": 19.0,
+      "posledni": 1625473.0,
+      "maximum": 1625473.0,
+      "prumer": 696238.9230769231
+    },
+    "podil_procenta": {
+      "prvni": 0.0004734071198727699,
+      "posledni": 42.1188313969912,
+      "maximum": 42.1188313969912,
+      "prumer": 17.01499399765966
+    },
+    "rust_nasobek": 85551.21052631579,
+    "meziroční_rust": [
+      {
+        "rok": 2019,
+        "prumer_okamzite": 39748.0,
+        "prumer_podil": 0.8987568690598859
+      },
+      {
+        "rok": 2020,
+        "prumer_okamzite": 353918.75,
+        "prumer_podil": 8.864078900199983
+      },
+      {
+        "rok": 2021,
+        "prumer_okamzite": 526171.5,
+        "prumer_podil": 12.86773730695923
+      },
+      {
+        "rok": 2022,
+        "prumer_okamzite": 686090.4166666666,
+        "prumer_podil": 16.54214935118318
+      },
+      {
+        "rok": 2023,
+        "prumer_okamzite": 952356.8333333334,
+        "prumer_podil": 23.162155051423387
+      },
+      {
+        "rok": 2024,
+        "prumer_okamzite": 1228896.5,
+        "prumer_podil": 30.12354252625146
+      },
+      {
+        "rok": 2025,
+        "prumer_okamzite": 1476742.0,
+        "prumer_podil": 36.278081959421236
+      }
+    ]
+  },
+  "milestones": [
+    {
+      "date": "2018-12",
+      "event": "Spuštění okamžitých plateb v ČR"
+    },
+    {
+      "date": "2019-01",
+      "event": "První banky začínají nabízet službu"
+    },
+    {
+      "date": "2025-04",
+      "event": "37% všech plateb je okamžitých"
+    },
+    {
+      "date": "2025-06",
+      "event": "40% podíl podle ČNB Instagram"
+    },
+    {
+      "date": "2027-07",
+      "event": "Plánovaná povinnost EUR okamžitých plateb"
+    }
+  ],
+  "international_context": {
+    "eu_average_2024": "Odhadovaně 15-25%",
+    "cz_position": "Mezi evropskými lídry",
+    "note": "ČR patří k nejrychleji rostoucím trhům okamžitých plateb v EU"
+  }
+}
