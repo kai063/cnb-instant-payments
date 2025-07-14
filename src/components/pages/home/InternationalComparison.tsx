@@ -66,10 +66,10 @@ export function InternationalComparison() {
     {
       country: 'Česká republika',
       flag: '🇨🇿',
-      adoption_rate: 37,
+      adoption_rate: 40,
       population: '10.5M',
       launch_year: 2018,
-      notes: '37% všech plateb (4/2025)',
+      notes: '40% všech plateb (6/2025)',
       position: 4,
       source: 'ČNB CERTIS Statistiky',
       source_url: 'https://www.cnb.cz/cs/platebni-styk/certis/statisticke-udaje/'
@@ -194,7 +194,7 @@ export function InternationalComparison() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-md ${
+                className={`flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 p-3 md:p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-md ${
                   country.country === 'Česká republika'
                     ? 'bg-gradient-to-r from-blue-600 to-blue-700 border-blue-800 text-white shadow-lg ring-2 ring-blue-500 ring-opacity-50'
                     : country.position === 1 
@@ -218,14 +218,14 @@ export function InternationalComparison() {
 
                 {/* Flag & Country */}
                 <div className="flex items-center gap-3 min-w-0 sm:min-w-[200px] flex-1 sm:flex-none">
-                  <span className="text-2xl">{country.flag}</span>
-                  <div>
-                    <div className={`font-semibold ${
+                  <span className="text-xl md:text-2xl">{country.flag}</span>
+                  <div className="min-w-0 flex-1">
+                    <div className={`font-semibold text-sm md:text-base ${
                       country.country === 'Česká republika' ? 'text-white' : 'text-gray-900'
                     }`}>
                       {country.country}
                     </div>
-                    <div className={`text-sm ${
+                    <div className={`text-xs md:text-sm ${
                       country.country === 'Česká republika' ? 'text-blue-100' : 'text-gray-500'
                     }`}>
                       {country.population} • {country.launch_year}
@@ -235,11 +235,11 @@ export function InternationalComparison() {
 
                 {/* Progress bar */}
                 <div className="flex-1 mx-0 sm:mx-6 w-full sm:w-auto">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className={`text-sm ${
+                  <div className="flex justify-between items-center mb-1 md:mb-2">
+                    <span className={`text-xs md:text-sm ${
                       country.country === 'Česká republika' ? 'text-blue-100' : 'text-gray-600'
                     }`}>Adopce</span>
-                    <span className={`font-semibold ${
+                    <span className={`font-semibold text-sm md:text-base ${
                       country.country === 'Česká republika' ? 'text-white' : 'text-gray-900'
                     }`}>
                       {country.adoption_rate}%
@@ -247,7 +247,7 @@ export function InternationalComparison() {
                   </div>
                   <Progress 
                     value={country.adoption_rate} 
-                    className={`h-3 ${
+                    className={`h-2 md:h-3 ${
                       country.country === 'Česká republika'
                         ? '[&>div]:bg-white [&>div]:shadow-sm'
                         : ''
@@ -256,10 +256,10 @@ export function InternationalComparison() {
                 </div>
 
                 {/* Notes & Source */}
-                <div className="min-w-0 sm:min-w-[200px] text-left sm:text-right w-full sm:w-auto">
+                <div className="min-w-0 w-full sm:min-w-[200px] sm:text-right sm:w-auto">
                   <Badge 
                     variant={country.country === 'Česká republika' ? 'secondary' : country.position === 1 ? 'default' : 'outline'} 
-                    className={`mb-2 ${
+                    className={`mb-1 md:mb-2 text-xs ${
                       country.country === 'Česká republika' 
                         ? 'bg-white/20 text-white border-white/30 hover:bg-white/30' 
                         : ''
@@ -267,7 +267,7 @@ export function InternationalComparison() {
                   >
                     {country.notes}
                   </Badge>
-                  <div className={`text-xs flex items-center justify-end gap-1 ${
+                  <div className={`text-xs flex items-center sm:justify-end gap-1 ${
                     country.country === 'Česká republika' ? 'text-blue-100' : 'text-gray-500'
                   }`}>
                     {country.source_url ? (
@@ -275,17 +275,17 @@ export function InternationalComparison() {
                         href={country.source_url} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-1 ${
+                        className={`flex items-center gap-1 break-all ${
                           country.country === 'Česká republika' 
                             ? 'hover:text-white' 
                             : 'hover:text-blue-600'
                         }`}
                       >
-                        {country.source}
-                        <ExternalLink className="w-3 h-3" />
+                        <span className="truncate">{country.source}</span>
+                        <ExternalLink className="w-3 h-3 flex-shrink-0" />
                       </a>
                     ) : (
-                      <span>{country.source}</span>
+                      <span className="truncate">{country.source}</span>
                     )}
                   </div>
                 </div>
@@ -397,8 +397,8 @@ export function InternationalComparison() {
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6">
                 <Crown className="w-6 h-6 md:w-8 md:h-8 text-blue-200 mx-auto mb-3" />
-                <div className="text-lg md:text-xl font-bold mb-2">#4</div>
-                <div className="text-blue-100 text-xs md:text-sm">současná pozice v EU</div>
+                <div className="text-lg md:text-xl font-bold mb-2">Nadprůměr</div>
+                <div className="text-blue-100 text-xs md:text-sm">výše než EU průměr</div>
               </div>
             </div>
           </div>

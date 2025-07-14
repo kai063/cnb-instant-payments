@@ -82,7 +82,7 @@ export function TimelineSection() {
     },
     {
       date: '2025-06',
-      title: 'Současný stav - 37% podíl',
+      title: 'Současný stav - 40% podíl',
       description: 'Okamžité platby dominují českému platebnímu ekosystému s více než 1.58M transakcemi denně.',
       icon: CheckCircle,
       color: 'text-white',
@@ -142,39 +142,39 @@ export function TimelineSection() {
               }`}
             >
               {/* Timeline dot */}
-              <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2">
-                <div className={`w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center ${
+              <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 top-1/2 z-10">
+                <div className={`w-6 h-6 md:w-8 md:h-8 rounded-full border-2 md:border-4 border-white shadow-lg flex items-center justify-center ${
                   event.status === 'current' 
                     ? 'bg-blue-600 animate-pulse ring-2 ring-blue-300' 
                     : event.status === 'future'
                     ? 'bg-blue-300'
                     : 'bg-blue-500'
                 }`}>
-                  <event.icon className={`w-4 h-4 ${
+                  <event.icon className={`w-3 h-3 md:w-4 md:h-4 ${
                     event.status === 'future' ? 'text-blue-600' : 'text-white'
                   }`} />
                 </div>
               </div>
 
               {/* Content card */}
-              <div className={`ml-16 md:ml-0 w-full md:w-5/12 ${
+              <div className={`ml-12 md:ml-0 w-full md:w-5/12 ${
                 index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
               }`}>
-                <Card className={`p-6 border-2 shadow-lg ${
+                <Card className={`p-4 md:p-6 border-2 shadow-lg ${
                   event.status === 'current' 
                     ? 'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-800 text-white' 
                     : event.status === 'future'
                     ? 'bg-blue-50 border-blue-200'
                     : 'bg-white border-blue-200'
                 }`}>
-                  <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-lg ${event.bgColor}`}>
-                      <event.icon className={`w-6 h-6 ${event.color}`} />
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <div className={`p-2 md:p-3 rounded-lg ${event.bgColor} flex-shrink-0`}>
+                      <event.icon className={`w-4 h-4 md:w-6 md:h-6 ${event.color}`} />
                     </div>
                     
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Badge className={`${
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-2">
+                        <Badge className={`text-xs md:text-sm ${
                           event.status === 'current'
                             ? 'bg-white/20 text-white border-white/30'
                             : event.status === 'future'
@@ -184,24 +184,24 @@ export function TimelineSection() {
                           {event.date}
                         </Badge>
                         {event.status === 'current' && (
-                          <Badge className="bg-white/20 text-white border-white/30">
+                          <Badge className="bg-white/20 text-white border-white/30 text-xs">
                             Aktuální
                           </Badge>
                         )}
                         {event.status === 'future' && (
-                          <Badge className="bg-blue-200 text-blue-700 border-blue-300">
+                          <Badge className="bg-blue-200 text-blue-700 border-blue-300 text-xs">
                             Plánované
                           </Badge>
                         )}
                       </div>
                       
-                      <h3 className={`text-xl font-semibold mb-3 ${
+                      <h3 className={`text-lg md:text-xl font-semibold mb-2 md:mb-3 ${
                         event.status === 'current' ? 'text-white' : 'text-blue-900'
                       }`}>
                         {event.title}
                       </h3>
                       
-                      <p className={`leading-relaxed ${
+                      <p className={`text-sm md:text-base leading-relaxed ${
                         event.status === 'current' ? 'text-blue-100' : 'text-blue-700'
                       }`}>
                         {event.description}

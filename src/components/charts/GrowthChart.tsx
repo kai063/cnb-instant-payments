@@ -147,28 +147,50 @@ export function GrowthChart() {
   }
 
   const commonLayout = {
-    font: { family: 'Inter, sans-serif', size: 12 },
-    margin: { l: 60, r: 40, t: 40, b: 60 },
-    height: 400,
+    font: { family: 'Inter, sans-serif', size: window.innerWidth < 768 ? 10 : 12 },
+    margin: { 
+      l: window.innerWidth < 768 ? 40 : 60, 
+      r: window.innerWidth < 768 ? 20 : 40, 
+      t: window.innerWidth < 768 ? 20 : 40, 
+      b: window.innerWidth < 768 ? 40 : 60 
+    },
+    height: window.innerWidth < 768 ? 300 : 400,
     showlegend: true,
-    legend: { orientation: 'h' as const, y: -0.2 },
-    hovermode: 'x' as const,
+    legend: { 
+      orientation: 'h' as const, 
+      y: -0.2,
+      x: 0.5,
+      xanchor: 'center',
+      font: { size: window.innerWidth < 768 ? 10 : 12 }
+    },
+    hovermode: 'closest' as const,
     plot_bgcolor: 'rgba(0,0,0,0)',
     paper_bgcolor: 'rgba(0,0,0,0)',
     xaxis: {
       gridcolor: '#f1f5f9',
-      title: { text: 'Rok' }
+      title: { 
+        text: 'Rok',
+        font: { size: window.innerWidth < 768 ? 10 : 12 }
+      },
+      tickangle: window.innerWidth < 768 ? -45 : 0,
+      tickfont: { size: window.innerWidth < 768 ? 8 : 10 }
     },
     yaxis: {
-      gridcolor: '#f1f5f9'
+      gridcolor: '#f1f5f9',
+      title: {
+        font: { size: window.innerWidth < 768 ? 10 : 12 }
+      },
+      tickfont: { size: window.innerWidth < 768 ? 8 : 10 }
     }
   }
 
   const config = {
     responsive: true,
-    displayModeBar: true,
-    modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d'] as any,
-    displaylogo: false
+    displayModeBar: window.innerWidth >= 768,
+    modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d', 'autoScale2d', 'resetScale2d'] as any,
+    displaylogo: false,
+    scrollZoom: false,
+    doubleClick: 'reset'
   }
 
   return (
@@ -186,88 +208,145 @@ export function GrowthChart() {
       </div>
 
       <Tabs defaultValue="absolute" className="w-full">
-        <TabsList className="grid w-full grid-cols-4 bg-blue-200">
-          <TabsTrigger value="absolute" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Absolutní počty</TabsTrigger>
-          <TabsTrigger value="share" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Podíl (%)</TabsTrigger>
-          <TabsTrigger value="log" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Log škála</TabsTrigger>
-          <TabsTrigger value="turnover" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white">Obrat</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 bg-blue-200 h-auto">
+          <TabsTrigger value="absolute" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-xs md:text-sm py-2 px-1">
+            <span className="hidden sm:inline">Absolutní počty</span>
+            <span className="sm:hidden">Počty</span>
+          </TabsTrigger>
+          <TabsTrigger value="share" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-xs md:text-sm py-2 px-1">
+            <span className="hidden sm:inline">Podíl (%)</span>
+            <span className="sm:hidden">Podíl</span>
+          </TabsTrigger>
+          <TabsTrigger value="log" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-xs md:text-sm py-2 px-1">
+            <span className="hidden sm:inline">Log škála</span>
+            <span className="sm:hidden">Log</span>
+          </TabsTrigger>
+          <TabsTrigger value="turnover" className="data-[state=active]:bg-blue-600 data-[state=active]:text-white text-xs md:text-sm py-2 px-1">
+            <span className="hidden sm:inline">Obrat</span>
+            <span className="sm:hidden">Obrat</span>
+          </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="absolute" className="mt-6">
-          <Plot
-            data={[absoluteTrace1, absoluteTrace2]}
-            layout={{
-              ...commonLayout,
-              title: { text: 'Průměrný denní počet plateb' },
-              yaxis: { ...commonLayout.yaxis, title: { text: 'Počet plateb' } }
-            }}
-            config={config}
-            className="w-full"
-          />
+        <TabsContent value="absolute" className="mt-4 md:mt-6">
+          <div className="w-full overflow-x-auto">
+            <Plot
+              data={[absoluteTrace1, absoluteTrace2]}
+              layout={{
+                ...commonLayout,
+                title: { 
+                  text: window.innerWidth < 768 ? 'Denní počet plateb' : 'Průměrný denní počet plateb',
+                  font: { size: window.innerWidth < 768 ? 14 : 16 }
+                },
+                yaxis: { 
+                  ...commonLayout.yaxis, 
+                  title: { 
+                    text: window.innerWidth < 768 ? 'Počet' : 'Počet plateb',
+                    font: { size: window.innerWidth < 768 ? 10 : 12 }
+                  }
+                }
+              }}
+              config={config}
+              className="w-full min-w-[300px]"
+              useResizeHandler={true}
+            />
+          </div>
         </TabsContent>
 
-        <TabsContent value="share" className="mt-6">
-          <Plot
-            data={[shareTrace]}
-            layout={{
-              ...commonLayout,
-              title: { text: 'Podíl okamžitých plateb ze všech plateb' },
-              yaxis: { ...commonLayout.yaxis, title: { text: 'Podíl (%)' } }
-            }}
-            config={config}
-            className="w-full"
-          />
+        <TabsContent value="share" className="mt-4 md:mt-6">
+          <div className="w-full overflow-x-auto">
+            <Plot
+              data={[shareTrace]}
+              layout={{
+                ...commonLayout,
+                title: { 
+                  text: window.innerWidth < 768 ? 'Podíl okamžitých plateb' : 'Podíl okamžitých plateb ze všech plateb',
+                  font: { size: window.innerWidth < 768 ? 14 : 16 }
+                },
+                yaxis: { 
+                  ...commonLayout.yaxis, 
+                  title: { 
+                    text: 'Podíl (%)',
+                    font: { size: window.innerWidth < 768 ? 10 : 12 }
+                  }
+                }
+              }}
+              config={config}
+              className="w-full min-w-[300px]"
+              useResizeHandler={true}
+            />
+          </div>
         </TabsContent>
 
-        <TabsContent value="log" className="mt-6">
-          <Plot
-            data={[logTrace]}
-            layout={{
-              ...commonLayout,
-              title: { text: 'Exponenciální růst okamžitých plateb' },
-              yaxis: { 
-                ...commonLayout.yaxis, 
-                title: { text: 'Počet plateb (log škála)' },
-                type: 'log' as const
-              }
-            }}
-            config={config}
-            className="w-full"
-          />
+        <TabsContent value="log" className="mt-4 md:mt-6">
+          <div className="w-full overflow-x-auto">
+            <Plot
+              data={[logTrace]}
+              layout={{
+                ...commonLayout,
+                title: { 
+                  text: window.innerWidth < 768 ? 'Exponenciální růst' : 'Exponenciální růst okamžitých plateb',
+                  font: { size: window.innerWidth < 768 ? 14 : 16 }
+                },
+                yaxis: { 
+                  ...commonLayout.yaxis, 
+                  title: { 
+                    text: window.innerWidth < 768 ? 'Počet (log)' : 'Počet plateb (log škála)',
+                    font: { size: window.innerWidth < 768 ? 10 : 12 }
+                  },
+                  type: 'log' as const
+                }
+              }}
+              config={config}
+              className="w-full min-w-[300px]"
+              useResizeHandler={true}
+            />
+          </div>
         </TabsContent>
 
-        <TabsContent value="turnover" className="mt-6">
-          <Plot
-            data={[turnoverTrace]}
-            layout={{
-              ...commonLayout,
-              title: { text: 'Průměrný denní obrat platebního systému' },
-              yaxis: { ...commonLayout.yaxis, title: { text: 'Obrat (mld Kč)' } }
-            }}
-            config={config}
-            className="w-full"
-          />
+        <TabsContent value="turnover" className="mt-4 md:mt-6">
+          <div className="w-full overflow-x-auto">
+            <Plot
+              data={[turnoverTrace]}
+              layout={{
+                ...commonLayout,
+                title: { 
+                  text: window.innerWidth < 768 ? 'Denní obrat systému' : 'Průměrný denní obrat platebního systému',
+                  font: { size: window.innerWidth < 768 ? 14 : 16 }
+                },
+                yaxis: { 
+                  ...commonLayout.yaxis, 
+                  title: { 
+                    text: 'Obrat (mld Kč)',
+                    font: { size: window.innerWidth < 768 ? 10 : 12 }
+                  }
+                }
+              }}
+              config={config}
+              className="w-full min-w-[300px]"
+              useResizeHandler={true}
+            />
+          </div>
         </TabsContent>
       </Tabs>
 
       {/* Insights */}
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-gradient-to-r from-blue-100 to-blue-200 p-5 rounded-xl border border-blue-300">
-          <div className="text-blue-900 font-semibold mb-2">Hlavní trend</div>
-          <div className="text-blue-800 text-sm">
+      <div className="mt-6 md:mt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
+        <div className="bg-gradient-to-r from-blue-100 to-blue-200 p-4 md:p-5 rounded-xl border border-blue-300">
+          <div className="text-blue-900 font-semibold mb-1 md:mb-2 text-sm md:text-base">Hlavní trend</div>
+          <div className="text-blue-800 text-xs md:text-sm">
             Exponenciální růst od 2019 s accelerací v roce 2024-2025
           </div>
         </div>
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-5 rounded-xl border border-blue-800">
-          <div className="text-white font-semibold mb-2">Aktuální stav</div>
-          <div className="text-blue-100 text-sm">
-            Okamžité platby dosáhly 37% podílu v červnu 2025
+        <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-4 md:p-5 rounded-xl border border-blue-800">
+          <div className="text-white font-semibold mb-1 md:mb-2 text-sm md:text-base">Aktuální stav</div>
+          <div className="text-blue-100 text-xs md:text-sm">
+            Okamžité platby dosáhly 40% podílu v červnu 2025
           </div>
         </div>
-        <div className="bg-gradient-to-r from-blue-200 to-blue-300 p-5 rounded-xl border border-blue-400">
-          <div className="text-blue-900 font-semibold mb-2">Pozice v EU</div>
-          <div className="text-blue-800 text-sm">
-            ČR patří mezi evropské lídry s dvojnásobkem EU průměru
+        <div className="bg-gradient-to-r from-blue-200 to-blue-300 p-4 md:p-5 rounded-xl border border-blue-400">
+          <div className="text-blue-900 font-semibold mb-1 md:mb-2 text-sm md:text-base">Pozice v EU</div>
+          <div className="text-blue-800 text-xs md:text-sm">
+            ČR patří mezi evropské lídry s nadprůměrnou adopcí
           </div>
         </div>
       </div>

@@ -124,7 +124,7 @@ export function CertisSavings() {
         </div>
 
         {/* Main advantages */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12 md:mb-16">
           {advantages.map((advantage, index) => (
             <motion.div
               key={index}
@@ -133,13 +133,13 @@ export function CertisSavings() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-l-blue-500">
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-lg ${advantage.bgColor}`}>
-                    <advantage.icon className={`w-6 h-6 ${advantage.color}`} />
+              <Card className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-l-blue-500">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <div className={`p-2 md:p-3 rounded-lg ${advantage.bgColor} flex-shrink-0`}>
+                    <advantage.icon className={`w-5 h-5 md:w-6 md:h-6 ${advantage.color}`} />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
                       {advantage.title}
                     </h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
@@ -171,7 +171,7 @@ export function CertisSavings() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
               {comparisonData.map((item, index) => (
                 <div
                   key={index}
@@ -182,8 +182,8 @@ export function CertisSavings() {
                   }`}
                 >
                   <div className="text-center">
-                    <h4 className={`font-medium text-sm mb-1 ${item.highlight ? 'text-white' : 'text-blue-800'}`}>{item.method}</h4>
-                    <div className={`text-base font-bold mb-1 ${item.highlight ? 'text-white' : 'text-blue-700'}`}>
+                    <h4 className={`font-medium text-xs md:text-sm mb-1 ${item.highlight ? 'text-white' : 'text-blue-800'}`}>{item.method}</h4>
+                    <div className={`text-sm md:text-base font-bold mb-1 ${item.highlight ? 'text-white' : 'text-blue-700'}`}>
                       {item.fee}
                     </div>
                     <p className={`text-xs ${item.highlight ? 'text-blue-100' : 'text-blue-600'}`}>{item.description}</p>
@@ -218,22 +218,22 @@ export function CertisSavings() {
               okamžitých plateb se úspory pohybují v milionech korun denně.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-4 border border-blue-200">
-                <div className="text-xl font-bold text-blue-700 mb-1">50%+</div>
-                <div className="text-blue-600 text-sm">Cílová adopce do 2026</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
+              <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-3 md:p-4 border border-blue-200">
+                <div className="text-lg md:text-xl font-bold text-blue-700 mb-1">50%+</div>
+                <div className="text-blue-600 text-xs md:text-sm">Cílová adopce do 2026</div>
               </div>
-              <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl p-4 border border-blue-300">
-                <div className="text-xl font-bold text-blue-800 mb-1">14</div>
-                <div className="text-blue-700 text-sm">Bank podporuje okamžité platby</div>
+              <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl p-3 md:p-4 border border-blue-300">
+                <div className="text-lg md:text-xl font-bold text-blue-800 mb-1">14</div>
+                <div className="text-blue-700 text-xs md:text-sm">Bank podporuje okamžité platby</div>
               </div>
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-4 border border-blue-800">
-                <div className="text-xl font-bold text-white mb-1">700M</div>
-                <div className="text-blue-100 text-sm">Plateb od startu systému</div>
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-3 md:p-4 border border-blue-800">
+                <div className="text-lg md:text-xl font-bold text-white mb-1">700M</div>
+                <div className="text-blue-100 text-xs md:text-sm">Plateb od startu systému</div>
               </div>
-              <div className="bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl p-4 border border-blue-900">
-                <div className="text-xl font-bold text-white mb-1">Miliony</div>
-                <div className="text-blue-100 text-sm">Korun úspor denně</div>
+              <div className="bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl p-3 md:p-4 border border-blue-900">
+                <div className="text-lg md:text-xl font-bold text-white mb-1">Miliony</div>
+                <div className="text-blue-100 text-xs md:text-sm">Korun úspor denně</div>
               </div>
             </div>
 

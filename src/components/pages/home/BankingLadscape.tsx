@@ -149,35 +149,35 @@ export function BankingLandscape() {
           </div>
           
           {/* Summary stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-4 text-center border border-blue-200">
-              <div className="text-xl font-bold text-blue-700">{supportingBanks.length}</div>
-              <div className="text-sm text-blue-600">Bank podporuje</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+            <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-3 md:p-4 text-center border border-blue-200">
+              <div className="text-lg md:text-xl font-bold text-blue-700">{supportingBanks.length}</div>
+              <div className="text-xs md:text-sm text-blue-600">Bank podporuje</div>
             </div>
-            <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg p-4 text-center border border-blue-300">
-              <div className="text-xl font-bold text-blue-800">{coveragePercent}%</div>
-              <div className="text-sm text-blue-700">Pokrytí trhu</div>
+            <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-lg p-3 md:p-4 text-center border border-blue-300">
+              <div className="text-lg md:text-xl font-bold text-blue-800">{coveragePercent}%</div>
+              <div className="text-xs md:text-sm text-blue-700">Pokrytí trhu</div>
             </div>
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-4 text-center border border-blue-800">
-              <div className="text-xl font-bold text-white">2,5M</div>
-              <div className="text-sm text-blue-100">Max. limit (Kč)</div>
+            <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-3 md:p-4 text-center border border-blue-800">
+              <div className="text-lg md:text-xl font-bold text-white">2,5M</div>
+              <div className="text-xs md:text-sm text-blue-100">Max. limit (Kč)</div>
             </div>
-            <div className="bg-gradient-to-r from-blue-700 to-blue-800 rounded-lg p-4 text-center border border-blue-900">
-              <div className="text-xl font-bold text-white">2019</div>
-              <div className="text-sm text-blue-100">První adopce</div>
+            <div className="bg-gradient-to-r from-blue-700 to-blue-800 rounded-lg p-3 md:p-4 text-center border border-blue-900">
+              <div className="text-lg md:text-xl font-bold text-white">2019</div>
+              <div className="text-xs md:text-sm text-blue-100">První adopce</div>
             </div>
           </div>
 
           {/* Banks table */}
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflow-x-auto -mx-2 md:mx-0">
+            <table className="w-full min-w-[500px]">
               <thead>
                 <tr className="border-b border-blue-200 bg-gradient-to-r from-blue-50 to-blue-100">
-                  <th className="text-left py-3 px-4 font-semibold text-blue-900">Banka</th>
-                  <th className="text-center py-3 px-4 font-semibold text-blue-900">Podpora</th>
-                  <th className="text-right py-3 px-4 font-semibold text-blue-900">Limit</th>
-                  <th className="text-center py-3 px-4 font-semibold text-blue-900">Kategorie</th>
-                  <th className="text-center py-3 px-4 font-semibold text-blue-900">Rok zavedení</th>
+                  <th className="text-left py-2 md:py-3 px-2 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Banka</th>
+                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Podpora</th>
+                  <th className="text-right py-2 md:py-3 px-2 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Limit</th>
+                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Kategorie</th>
+                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-sm md:text-base hidden sm:table-cell">Rok zavedení</th>
                 </tr>
               </thead>
               <tbody>
@@ -185,36 +185,41 @@ export function BankingLandscape() {
                   const category = getLimitCategory(bank.limit_kc)
                   return (
                     <tr key={index} className="border-b border-blue-100 hover:bg-blue-50/30">
-                      <td className="py-3 px-4">
-                        <div className="font-medium text-gray-900">{bank.nazev}</div>
-                        <div className="text-sm text-gray-500">{bank.kod}</div>
+                      <td className="py-2 md:py-3 px-2 md:px-4">
+                        <div className="font-medium text-gray-900 text-sm md:text-base">{bank.nazev}</div>
+                        <div className="text-xs md:text-sm text-gray-500">{bank.kod}</div>
                       </td>
-                      <td className="py-3 px-4 text-center">
+                      <td className="py-2 md:py-3 px-1 md:px-4 text-center">
                         {bank.supports_instant ? (
-                          <CheckCircle className="w-5 h-5 text-green-500 mx-auto" />
+                          <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-green-500 mx-auto" />
                         ) : (
-                          <XCircle className="w-5 h-5 text-red-500 mx-auto" />
+                          <XCircle className="w-4 md:w-5 h-4 md:h-5 text-red-500 mx-auto" />
                         )}
                       </td>
-                      <td className="py-3 px-4 text-right">
+                      <td className="py-2 md:py-3 px-2 md:px-4 text-right">
                         {bank.supports_instant ? (
-                          <span className="font-semibold text-gray-900">
+                          <span className="font-semibold text-gray-900 text-xs md:text-sm">
                             {bank.limit_kc >= 1000000 
-                              ? `${(bank.limit_kc / 1000000).toFixed(1)}M Kč`
-                              : `${(bank.limit_kc / 1000).toLocaleString('cs-CZ')}K Kč`
+                              ? `${(bank.limit_kc / 1000000).toFixed(1)}M`
+                              : `${(bank.limit_kc / 1000).toLocaleString('cs-CZ')}K`
                             }
                           </span>
                         ) : (
-                          <span className="text-gray-400 text-sm">—</span>
+                          <span className="text-gray-400 text-xs md:text-sm">—</span>
                         )}
                       </td>
-                      <td className="py-3 px-4 text-center">
-                        <Badge className={`text-xs ${category.color} border`}>
-                          {category.label}
+                      <td className="py-2 md:py-3 px-1 md:px-4 text-center">
+                        <Badge className={`text-xs ${category.color} border px-1 md:px-2`}>
+                          <span className="hidden md:inline">{category.label}</span>
+                          <span className="md:hidden">
+                            {category.label === 'Vysoký' ? 'V' : 
+                             category.label === 'Standardní' ? 'S' : 
+                             category.label === 'Nízký' ? 'N' : 'X'}
+                          </span>
                         </Badge>
                       </td>
-                      <td className="py-3 px-4 text-center">
-                        <span className="text-sm text-blue-600">
+                      <td className="py-2 md:py-3 px-1 md:px-4 text-center hidden sm:table-cell">
+                        <span className="text-xs md:text-sm text-blue-600">
                           {bank.rok_zavedeni || '—'}
                         </span>
                       </td>

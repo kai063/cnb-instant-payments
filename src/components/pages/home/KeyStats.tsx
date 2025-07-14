@@ -179,7 +179,7 @@ export function KeyStats() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -188,18 +188,18 @@ export function KeyStats() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-0 bg-white hover:scale-105">
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-lg ${stat.bgColor}`}>
-                    <stat.icon className={`w-6 h-6 ${stat.color}`} />
+              <Card className="p-3 md:p-4 lg:p-6 hover:shadow-lg transition-all duration-300 border-0 bg-white hover:scale-105">
+                <div className="flex items-start justify-between mb-3 md:mb-4">
+                  <div className={`p-2 md:p-3 rounded-lg ${stat.bgColor}`}>
+                    <stat.icon className={`w-4 h-4 md:w-6 md:h-6 ${stat.color}`} />
                   </div>
                 </div>
                 
-                <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-gray-600">
+                <div className="space-y-1 md:space-y-2">
+                  <h3 className="text-xs md:text-sm font-medium text-gray-600">
                     {stat.title}
                   </h3>
-                  <div className="text-xl md:text-2xl font-bold text-gray-900">
+                  <div className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">
                     {stat.value}
                   </div>
                   <p className="text-xs text-gray-500">
@@ -219,21 +219,21 @@ export function KeyStats() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <Card className="p-6 md:p-8 bg-gradient-to-r from-blue-600 to-blue-700 border-blue-800">
-            <h3 className="text-xl font-semibold text-white mb-4">
+          <Card className="p-4 md:p-6 lg:p-8 bg-gradient-to-r from-blue-600 to-blue-700 border-blue-800">
+            <h3 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4">
               Pozice v Evropě
             </h3>
-            <p className="text-blue-100 text-lg leading-relaxed max-w-3xl mx-auto">
+            <p className="text-blue-100 text-sm md:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
               Česká republika patří mezi evropské lídry v oblasti okamžitých plateb
             </p>
-            <div className="flex items-center justify-center gap-8 mt-6">
+            <div className="flex items-center justify-center gap-4 md:gap-8 mt-4 md:mt-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-white">37%</div>
-                <div className="text-sm text-blue-100">Česká republika (ČNB 2025)</div>
+                <div className="text-xl md:text-2xl font-bold text-white">40%</div>
+                <div className="text-xs md:text-sm text-blue-100">Česká republika (ČNB 2025)</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-200">15%</div>
-                <div className="text-sm text-blue-100">EU průměr (ECB 2024)</div>
+                <div className="text-xl md:text-2xl font-bold text-blue-200">15%</div>
+                <div className="text-xs md:text-sm text-blue-100">EU průměr (ECB 2024)</div>
               </div>
             </div>
           </Card>
