@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: '/cnb-okamzite-platby',
+  basePath: '',
   trailingSlash: true,
   output: 'export' // Optional: for static export if needed
 };

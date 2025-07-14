@@ -3,24 +3,25 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Navigation } from '@/components/layout/Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'České okamžité platby: Od nuly k evropskému lídrovi',
-  description: 'Kompletní analýza růstu okamžitých plateb v České republice na základě oficiálních dat České národní banky. Interaktivní vizualizace ukazují cestu od spuštění v roce 2018 k 64% podílu v roce 2025.',
-  keywords: ['okamžité platby', 'ČNB', 'CERTIS', 'platební systém', 'fintech', 'Česká republika'],
-  authors: [{ name: 'Analýza ČNB dat' }],
+  title: 'Kryštof Hireš - Project Engineer & Economics Student',
+  description: 'Portfolio Kryštofa Hireše - Project Engineer ve společnosti MEUI Creative a student ekonomie na UK IES. Specializace na webové technologie a datovou analýzu.',
+  keywords: ['project engineer', 'economics student', 'UK IES', 'React', 'Next.js', 'Python', 'web development', 'portfolio'],
+  authors: [{ name: 'Kryštof Hireš' }],
   openGraph: {
-    title: 'České okamžité platby: Analýza růstu 2018-2025',
-    description: 'Interaktivní analýza ukazující fenomenální růst okamžitých plateb v ČR - od 0% na 64% za 6 let',
+    title: 'Kryštof Hireš - Portfolio',
+    description: 'Project Engineer & Economics Student - Portfolio spojující technologie s ekonomií',
     type: 'website',
     locale: 'cs_CZ',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'České okamžité platby: Evropský lídr',
-    description: 'Analýza dat ČNB: 64% podíl okamžitých plateb, 1.6M transakcí denně, růst 85,551x za 6 let',
+    title: 'Kryštof Hireš - Portfolio',
+    description: 'Project Engineer & Economics Student - UK IES',
   },
   robots: {
     index: true,
@@ -40,7 +41,10 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body className={`${inter.className} antialiased`}>
-        {children}
+        <Navigation />
+        <main className="pt-16">
+          {children}
+        </main>
       </body>
     </html>
   )
