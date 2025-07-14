@@ -232,7 +232,7 @@ export function KeyStats() {
                 <div className="text-sm text-gray-600">Česká republika</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-400">~20%</div>
+                <div className="text-2xl font-bold text-gray-400">15%</div>
                 <div className="text-sm text-gray-600">EU průměr</div>
               </div>
             </div>

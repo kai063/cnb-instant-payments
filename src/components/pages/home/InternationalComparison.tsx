@@ -30,10 +30,10 @@ export function InternationalComparison() {
     {
       country: 'Nizozemsko',
       flag: '🇳🇱',
-      adoption_rate: 45,
+      adoption_rate: 52,
       population: '17.4M',
       launch_year: 2017,
-      notes: 'Silná digitální kultura',
+      notes: 'Evropský lídr (DNB 2024)',
       position: 1
     },
     {
@@ -46,39 +46,39 @@ export function InternationalComparison() {
       position: 2
     },
     {
-      country: 'Švédsko',
-      flag: '🇸🇪',
-      adoption_rate: 38,
-      population: '10.4M',
-      launch_year: 2012,
-      notes: 'Průkopník cashless společnosti',
+      country: 'EU průměr',
+      flag: '🇪🇺',
+      adoption_rate: 15,
+      population: '447M',
+      launch_year: 2017,
+      notes: '15% z převodů (ECB 2024)',
       position: 3
     },
     {
-      country: 'Německo',
-      flag: '🇩🇪',
-      adoption_rate: 25,
-      population: '83.2M',
-      launch_year: 2017,
-      notes: 'Konzervativní přístup',
+      country: 'Švédsko',
+      flag: '🇸🇪',
+      adoption_rate: 12,
+      population: '10.4M',
+      launch_year: 2012,
+      notes: 'Swish dominance (odhad)',
       position: 4
     },
     {
       country: 'Francie',
       flag: '🇫🇷',
-      adoption_rate: 22,
+      adoption_rate: 8,
       population: '67.8M',
       launch_year: 2018,
-      notes: 'Postupná adopce',
+      notes: 'Růst 46% v 2023 (odhad)',
       position: 5
     },
     {
-      country: 'EU průměr',
-      flag: '🇪🇺',
-      adoption_rate: 20,
-      population: '447M',
+      country: 'Německo',
+      flag: '🇩🇪',
+      adoption_rate: 4,
+      population: '83.2M',
       launch_year: 2017,
-      notes: 'Průměr všech zemí EU',
+      notes: '4% z převodů (Bundesbank)',
       position: 6
     }
   ]
@@ -315,7 +315,7 @@ export function InternationalComparison() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
                 <Crown className="w-8 h-8 text-yellow-300 mx-auto mb-3" />
                 <div className="text-xl font-bold mb-2">#2</div>
-                <div className="text-slate-100 text-sm">posun na 1. místo</div>
+                <div className="text-slate-100 text-sm">současná pozice v EU</div>
               </div>
             </div>
           </div>

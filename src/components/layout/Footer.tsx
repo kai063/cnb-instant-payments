@@ -97,16 +97,57 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Poznámky */}
+          {/* Mezinárodní zdroje */}
           <div>
-            <h3 className="text-white font-semibold mb-4">
-              Poznámky k datům
+            <h3 className="text-white font-semibold mb-4 flex items-center gap-2">
+              <ExternalLink className="w-5 h-5 text-orange-400" />
+              Mezinárodní zdroje
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>Data zpracována z oficiálních ČNB zdrojů</li>
-              <li>Okamžité platby dostupné od listopadu 2018</li>
-              <li>Mezinárodní srovnání na základě EU statistik</li>
-              <li>Bankovní limity aktuální k červnu 2025</li>
+              <li>
+                <a 
+                  href="https://www.ecb.europa.eu/stats/payments/html/index.en.html" 
+                  className="hover:text-orange-400 transition-colors flex items-center gap-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ECB Payment Statistics
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.bundesbank.de/en/statistics/payment-and-settlement-systems" 
+                  className="hover:text-orange-400 transition-colors flex items-center gap-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bundesbank Payment Stats
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.betaalvereniging.nl/en/payment-data/" 
+                  className="hover:text-orange-400 transition-colors flex items-center gap-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Dutch Payments Association
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://www.riksbank.se/en-gb/statistics/payments/" 
+                  className="hover:text-orange-400 transition-colors flex items-center gap-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Riksbank Payment Statistics
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -126,12 +167,13 @@ export function Footer() {
                 </ul>
               </div>
               <div>
-                <h5 className="text-slate-300 font-medium mb-2">Doplňkové zdroje:</h5>
+                <h5 className="text-slate-300 font-medium mb-2">Mezinárodní zdroje:</h5>
                 <ul className="space-y-1 text-slate-400">
-                  <li>• Manuální kompilace bankovních webů a podmínek</li>
-                  <li>• Registr "Platby na kontakt" (366K uživatelů, červen 2025)</li>
-                  <li>• EU statistiky pro mezinárodní kontext</li>
-                  <li>• Veřejně dostupné informace o bankovních limitech</li>
+                  <li>• ECB Payment Statistics - EU průměrné hodnoty adopce</li>
+                  <li>• Bundesbank - německé statistiky instant payments (4%)</li>
+                  <li>• Betaalvereniging - nizozemské údaje (88% dostupnost)</li>
+                  <li>• Riksbank - švédské statistiky platebního styku</li>
+                  <li>• Banque de France - francouzské údaje o růstu</li>
                 </ul>
               </div>
             </div>
