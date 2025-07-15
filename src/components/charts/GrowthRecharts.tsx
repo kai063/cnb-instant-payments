@@ -14,7 +14,9 @@ import {
   ResponsiveContainer,
   Legend,
   AreaChart,
-  Area
+  Area,
+  ReferenceLine,
+  ReferenceArea
 } from 'recharts'
 
 interface ParsedData {
@@ -33,6 +35,7 @@ interface ChartDataPoint {
   share_percent: number
   turnover: number
   instant_payments_log?: number
+  milestone?: string
 }
 
 export function GrowthChartRecharts() {
@@ -77,15 +80,25 @@ export function GrowthChartRecharts() {
           .filter(d => d.date >= new Date('2018-01-01'))
           .sort((a, b) => a.date.getTime() - b.date.getTime())
 
-        const formattedChartData: ChartDataPoint[] = filteredData.map(d => ({
-          date: d.date.toISOString().split('T')[0],
-          dateFormatted: d.date.toLocaleDateString('cs-CZ', { year: 'numeric', month: 'short' }),
-          instant_payments: Math.round(d.instant_payments),
-          regular_payments: Math.round(d.regular_payments),
-          share_percent: Math.round(d.share_percent * 10) / 10,
-          turnover: Math.round(d.turnover * 10) / 10,
-          instant_payments_log: d.instant_payments > 0 ? d.instant_payments : undefined
-        }))
+        const formattedChartData: ChartDataPoint[] = filteredData.map(d => {
+          const dateStr = d.date.toISOString().split('T')[0]
+          let milestone = undefined
+          
+          if (dateStr === '2018-11-01') milestone = 'Spuštění (11/2018)'
+          else if (dateStr === '2021-06-01') milestone = 'Limit 2,5 mil. Kč (6/2021)'
+          else if (dateStr === '2024-03-01') milestone = '700 mil. plateb (3/2024)'
+          
+          return {
+            date: dateStr,
+            dateFormatted: d.date.toLocaleDateString('cs-CZ', { year: 'numeric', month: 'short' }),
+            instant_payments: Math.round(d.instant_payments),
+            regular_payments: Math.round(d.regular_payments),
+            share_percent: Math.round(d.share_percent * 10) / 10,
+            turnover: Math.round(d.turnover * 10) / 10,
+            instant_payments_log: d.instant_payments > 0 ? d.instant_payments : undefined,
+            milestone
+          }
+        })
 
         setChartData(formattedChartData)
         setLoading(false)
@@ -235,6 +248,9 @@ export function GrowthChartRecharts() {
                   name="Okamžité platby"
                   dot={false}
                 />
+                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "topLeft", style: { fontSize: 10, fill: "#dc2626" } }} />
+                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "topLeft", style: { fontSize: 10, fill: "#ea580c" } }} />
+                <ReferenceLine x="bře 2024" stroke="#059669" strokeDasharray="5 5" label={{ value: "700 mil. plateb", position: "topLeft", style: { fontSize: 10, fill: "#059669" } }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -269,6 +285,8 @@ export function GrowthChartRecharts() {
                   strokeWidth={3}
                   name="Podíl okamžitých plateb"
                 />
+                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "topLeft", style: { fontSize: 10, fill: "#dc2626" } }} />
+                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "topLeft", style: { fontSize: 10, fill: "#ea580c" } }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -304,6 +322,8 @@ export function GrowthChartRecharts() {
                   dot={{ r: 2 }}
                   connectNulls={false}
                 />
+                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "bottomLeft", style: { fontSize: 10, fill: "#dc2626" } }} />
+                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "bottomLeft", style: { fontSize: 10, fill: "#ea580c" } }} />
               </LineChart>
             </ResponsiveContainer>
           </div>

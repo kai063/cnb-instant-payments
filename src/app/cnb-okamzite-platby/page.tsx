@@ -9,6 +9,7 @@ import { GrowthChartRecharts } from '@/components/charts/GrowthRecharts'
 import { TimelineSection } from '@/components/pages/home/TimelineSection'
 import { BankingLandscape } from '@/components/pages/home/BankingLadscape'
 import { InternationalComparison } from '@/components/pages/home/InternationalComparison'
+import { HowItWorks } from '@/components/pages/home/HowItWorks'
 import { LoadingSpinner } from '@/components/shared/LoadingSpinner'
 import { Footer } from '@/components/layout/Footer'
 
@@ -27,6 +28,9 @@ export default function HomePage() {
       </div>
       {/* Hero sekce */}
       <HomeHero />
+      
+      {/* Jak fungují okamžité platby */}
+      <HowItWorks />
       
       {/* Hlavní graf růstu - jak rychle rostou */}
       <section className="py-12 md:py-20 bg-gradient-to-r from-blue-50 to-blue-100">

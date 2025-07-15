@@ -85,7 +85,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://www.cnb.cz/cs/statistiky/" 
+                  href="https://www.cnb.cz/cs/statistika/" 
                   className="hover:text-blue-400 transition-colors flex items-center gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -173,7 +173,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://www.bundesbank.de/en/statistics/payment-and-settlement-systems" 
+                  href="https://www.bundesbank.de/en/tasks/payment-systems/publications/statistics-on-payment-systems-626598" 
                   className="hover:text-orange-400 transition-colors flex items-center gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -184,7 +184,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://www.betaalvereniging.nl/en/payment-data/" 
+                  href="https://www.betaalvereniging.nl/en/latest-news/facts-figures/" 
                   className="hover:text-orange-400 transition-colors flex items-center gap-1"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -195,7 +195,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://www.riksbank.se/en-gb/statistics/payments/" 
+                  href="https://www.riksbank.se/en-gb/statistics/statistics-on-payments-banknotes-and-coins/statistics-on-payments/" 
                   className="hover:text-orange-400 transition-colors flex items-center gap-1"
                   target="_blank"
                   rel="noopener noreferrer"

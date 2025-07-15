@@ -125,7 +125,10 @@ export function BankingLandscape() {
             Které banky okamžité platby podporují?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Přehled bank, které okamžité platby nabízejí, a jaké mají limity
+           • Banky mohou stanovit nižší odchozí limity
+          </p>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                    • Všechny banky musí přijmout platby do max. limitu
           </p>
         </motion.div>
       </div>
@@ -139,14 +142,6 @@ export function BankingLandscape() {
         className="mb-12"
       >
         <Card className="p-6">
-          <div className="text-center mb-6">
-            <h3 className="text-xl font-bold text-gray-900 mb-2">
-              Přehled bank a jejich limitů
-            </h3>
-            <p className="text-sm text-gray-600">
-              Kompletní seznam všech bank s podporou okamžitých plateb a jejich limity
-            </p>
-          </div>
           
           {/* Summary stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
@@ -239,31 +234,6 @@ export function BankingLandscape() {
         transition={{ duration: 0.8, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <Card className="p-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-800">
-          <h3 className="text-xl font-bold text-white mb-6 text-center">
-            Klíčová pozorování
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h4 className="font-semibold text-blue-100 mb-3">Adopce a limity</h4>
-              <ul className="text-blue-50 text-sm space-y-2">
-                <li>• Maximální limit systému CERTIS: 2,5 mil Kč (ČNB)</li>
-                <li>• Banky mohou stanovit nižší odchozí limity</li>
-                <li>• Všechny banky musí přijmout platby do max. limitu</li>
-                <li>• Okamžité zúčtování za sekundy, 24/7</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold text-blue-100 mb-3">Stav trhu</h4>
-              <ul className="text-blue-50 text-sm space-y-2">
-                <li>• UniCredit Bank se připojila jako poslední velká banka</li>
-                <li>• Trinity Bank zatím okamžité platby nepodporuje</li>
-                <li>• Air Bank byla průkopníkem (2019)</li>
-                <li>• {supportingBanks.length}/{banksData.length} bank podporuje okamžité platby</li>
-              </ul>
-            </div>
-          </div>
-        </Card>
       </motion.div>
     </div>
   )

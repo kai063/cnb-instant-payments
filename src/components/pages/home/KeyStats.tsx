@@ -120,38 +120,7 @@ export function KeyStats() {
       color: 'text-blue-900',
       bgColor: 'bg-blue-300'
     },
-    {
-      icon: Calendar,
-      title: 'Období růstu',
-      value: `${data.growth_summary.pocet_mesicu} měsíců`,
-      change: `${data.growth_summary.prvni_mesic} - ${data.growth_summary.posledni_mesic}`,
-      color: 'text-blue-700',
-      bgColor: 'bg-blue-100'
-    },
-    {
-      icon: ArrowUpRight,
-      title: 'Růst v Evropě',
-      value: 'Nejrychlejší',
-      change: 'Růst adopce v EU (odhad)',
-      color: 'text-blue-800',
-      bgColor: 'bg-blue-200'
-    },
-    {
-      icon: Clock,
-      title: 'První transakce',
-      value: data.growth_summary.okamzite_platby.prvni.toLocaleString('cs-CZ'),
-      change: `${data.growth_summary.prvni_mesic}`,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50'
-    },
-    {
-      icon: Users,
-      title: 'Současný stav',
-      value: Math.round(data.growth_summary.okamzite_platby.posledni / 1000).toLocaleString('cs-CZ') + 'K',
-      change: `${data.growth_summary.posledni_mesic}`,
-      color: 'text-blue-900',
-      bgColor: 'bg-blue-300'
-    }
+
   ]
 
   return (
