@@ -66,7 +66,8 @@ export default function HomePage() {
         <BankingLandscape />
       </section>
       
-
+      {/* Úspory díky CERTIS */}
+      <CertisSavings />
       
       {/* Footer se zdroji dat */}
       <Footer />

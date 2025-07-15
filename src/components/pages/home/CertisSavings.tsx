@@ -101,56 +101,7 @@ export function CertisSavings() {
   return (
     <section className="py-12 md:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-100">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Badge variant="outline" className="mb-4">
-              <PiggyBank className="w-4 h-4 mr-2" />
-              Praktické výhody
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Proč jsou okamžité platby lepší volbou?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Okamžité platby vám ušetří peníze, čas i starosti. Převedete peníze za sekundy, 
-              bez výrazných poplatků a kdykoliv potřebujete.
-            </p>
-          </motion.div>
-        </div>
 
-        {/* Main advantages */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12 md:mb-16">
-          {advantages.map((advantage, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 border-l-4 border-l-blue-500">
-                <div className="flex items-start gap-3 md:gap-4">
-                  <div className={`p-2 md:p-3 rounded-lg ${advantage.bgColor} flex-shrink-0`}>
-                    <advantage.icon className={`w-5 h-5 md:w-6 md:h-6 ${advantage.color}`} />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">
-                      {advantage.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {advantage.description}
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Cost comparison section */}
         <motion.div
@@ -200,8 +151,7 @@ export function CertisSavings() {
           </Card>
         </motion.div>
 
-
-        {/* Future outlook and economic impact */}
+        {/* Advantages and savings section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -210,30 +160,30 @@ export function CertisSavings() {
         >
           <Card className="p-6 md:p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              Budoucnost okamžitých plateb v Česku
+              Výhody a úspory okamžitých plateb
             </h3>
             <p className="text-gray-600 max-w-3xl mx-auto mb-8">
-              S rostoucím objemem plateb a rozšiřováním používání systému CERTIS lze očekávat, 
-              že úspory pro českou ekonomiku budou nadále růst. Při denním objemu 1,58 mil. 
-              okamžitých plateb se úspory pohybují v milionech korun denně.
+              Okamžité platby přinášejí úspory pro českou ekonomiku. 
+              Odhady vycházejí z rozdílu nákladů CERTIS (0,10 Kč za platbu) oproti 
+              poplatkům platebních karet a služeb podle dat ČNB a veřejných tarifů.
             </p>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
               <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-3 md:p-4 border border-blue-200">
-                <div className="text-lg md:text-xl font-bold text-blue-700 mb-1">50%+</div>
-                <div className="text-blue-600 text-xs md:text-sm">Cílová adopce do 2026</div>
+                <div className="text-lg md:text-xl font-bold text-blue-700 mb-1">přes 200 mil. Kč</div>
+                <div className="text-blue-600 text-xs md:text-sm">Dosavadní úspory od roku 2019</div>
               </div>
               <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl p-3 md:p-4 border border-blue-300">
-                <div className="text-lg md:text-xl font-bold text-blue-800 mb-1">14</div>
-                <div className="text-blue-700 text-xs md:text-sm">Bank podporuje okamžité platby</div>
+                <div className="text-lg md:text-xl font-bold text-blue-800 mb-1">přes 100 mil. Kč</div>
+                <div className="text-blue-700 text-xs md:text-sm">Konzervativní odhad ročních úspor</div>
               </div>
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-3 md:p-4 border border-blue-800">
-                <div className="text-lg md:text-xl font-bold text-white mb-1">700M</div>
-                <div className="text-blue-100 text-xs md:text-sm">Plateb od startu systému</div>
+                <div className="text-lg md:text-xl font-bold text-white mb-1">přes 500 mil. Kč</div>
+                <div className="text-blue-100 text-xs md:text-sm">Potenciál při vyšší adopci</div>
               </div>
               <div className="bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl p-3 md:p-4 border border-blue-900">
-                <div className="text-lg md:text-xl font-bold text-white mb-1">Miliony</div>
-                <div className="text-blue-100 text-xs md:text-sm">Korun úspor denně</div>
+                <div className="text-lg md:text-xl font-bold text-white mb-1">Rostoucí</div>
+                <div className="text-blue-100 text-xs md:text-sm">Trend úspor s časem</div>
               </div>
             </div>
 
@@ -248,6 +198,7 @@ export function CertisSavings() {
             </div>
           </Card>
         </motion.div>
+
       </div>
     </section>
   )
