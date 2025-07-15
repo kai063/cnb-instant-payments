@@ -248,9 +248,9 @@ export function GrowthChartRecharts() {
                   name="Okamžité platby"
                   dot={false}
                 />
-                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "topLeft", style: { fontSize: 10, fill: "#dc2626" } }} />
-                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "topLeft", style: { fontSize: 10, fill: "#ea580c" } }} />
-                <ReferenceLine x="bře 2024" stroke="#059669" strokeDasharray="5 5" label={{ value: "700 mil. plateb", position: "topLeft", style: { fontSize: 10, fill: "#059669" } }} />
+                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "top", style: { fontSize: 10, fill: "#dc2626" } }} />
+                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "top", style: { fontSize: 10, fill: "#ea580c" } }} />
+                <ReferenceLine x="bře 2024" stroke="#059669" strokeDasharray="5 5" label={{ value: "700 mil. plateb", position: "top", style: { fontSize: 10, fill: "#059669" } }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -285,8 +285,8 @@ export function GrowthChartRecharts() {
                   strokeWidth={3}
                   name="Podíl okamžitých plateb"
                 />
-                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "topLeft", style: { fontSize: 10, fill: "#dc2626" } }} />
-                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "topLeft", style: { fontSize: 10, fill: "#ea580c" } }} />
+                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "top", style: { fontSize: 10, fill: "#dc2626" } }} />
+                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "top", style: { fontSize: 10, fill: "#ea580c" } }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -322,8 +322,8 @@ export function GrowthChartRecharts() {
                   dot={{ r: 2 }}
                   connectNulls={false}
                 />
-                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "bottomLeft", style: { fontSize: 10, fill: "#dc2626" } }} />
-                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "bottomLeft", style: { fontSize: 10, fill: "#ea580c" } }} />
+                <ReferenceLine x="lis 2018" stroke="#dc2626" strokeDasharray="5 5" label={{ value: "Spuštění", position: "bottom", style: { fontSize: 10, fill: "#dc2626" } }} />
+                <ReferenceLine x="čvn 2021" stroke="#ea580c" strokeDasharray="5 5" label={{ value: "Limit 2,5 mil. Kč", position: "bottom", style: { fontSize: 10, fill: "#ea580c" } }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
