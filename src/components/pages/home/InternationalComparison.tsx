@@ -196,12 +196,12 @@ export function InternationalComparison() {
                 viewport={{ once: true }}
                 className={`flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 p-3 md:p-4 rounded-lg border-2 transition-all duration-300 hover:shadow-md ${
                   country.country === 'Česká republika'
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 border-blue-800 text-white shadow-lg ring-2 ring-blue-500 ring-opacity-50'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 border-blue-800 text-white shadow-lg ring-2 ring-blue-500 ring-opacity-50 hover:scale-105'
                     : country.country === 'EU průměr'
                     ? 'bg-gradient-to-r from-blue-50 to-blue-50 border-blue-200 ring-1 ring-blue-300 ring-opacity-50'
                     : country.position === 1 
-                    ? 'bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300' 
-                    : 'bg-white border-gray-200'
+                    ? 'bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:scale-102' 
+                    : 'bg-white border-gray-200 hover:scale-102'
                 }`}
               >
                 {/* Position */}

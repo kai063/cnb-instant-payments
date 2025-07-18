@@ -36,60 +36,161 @@
     {
       "nazev": "Air Bank",
       "kod": "3030",
-      "limit_kc": 50000,
+      "okamzite_platby": true,
+      "limit_platba_kc": 50000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma",
       "rok_zavedeni": 2019
+    },
+    {
+      "nazev": "Banka CREDITAS",
+      "kod": "2250",
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
     },
     {
       "nazev": "Česká spořitelna",
       "kod": "0800",
-      "limit_kc": 400000,
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma",
       "rok_zavedeni": 2019
     },
     {
-      "nazev": "CREDITAS",
-      "kod": "2250",
-      "limit_kc": 400000
-    },
-    {
-      "nazev": "ČSOB",
+      "nazev": "Československá obchodní banka (ČSOB)",
       "kod": "0300",
-      "limit_kc": 2500000
+      "okamzite_platby": true,
+      "limit_platba_kc": 2500000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
     },
     {
       "nazev": "Fio banka",
       "kod": "2010",
-      "limit_kc": 100000
+      "okamzite_platby": true,
+      "limit_platba_kc": 100000,
+      "denni_limit_kc": 400000,
+      "poplatky": "Zdarma"
     },
     {
-      "nazev": "J&T Banka",
+      "nazev": "J&T BANKA",
       "kod": "5800",
-      "limit_kc": 400000
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
     },
     {
       "nazev": "Komerční banka",
       "kod": "0100",
-      "limit_kc": 400000
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Dle tarifu (0-6 Kč)"
     },
     {
       "nazev": "mBank",
       "kod": "6210",
-      "limit_kc": 400000
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": 1000000,
+      "poplatky": "Zdarma"
     },
     {
-      "nazev": "MONETA",
+      "nazev": "MONETA Money Bank",
       "kod": "0600",
-      "limit_kc": 400000
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
+    },
+    {
+      "nazev": "Multitude Bank",
+      "kod": "8500",
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
+    },
+    {
+      "nazev": "Oberbank AG",
+      "kod": "8040",
+      "okamzite_platby": true,
+      "limit_platba_kc": 2500000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
+    },
+    {
+      "nazev": "Partners Banka",
+      "kod": "6363",
+      "okamzite_platby": true,
+      "limit_platba_kc": 100000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
+    },
+    {
+      "nazev": "PPF banka",
+      "kod": "6000",
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
     },
     {
       "nazev": "Raiffeisenbank",
       "kod": "5500",
-      "limit_kc": 400000
+      "okamzite_platby": true,
+      "limit_platba_kc": 400000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
+    },
+    {
+      "nazev": "UniCredit Bank",
+      "kod": "2700",
+      "okamzite_platby": true,
+      "limit_platba_kc": 1000000,
+      "denni_limit_kc": "Neomezený",
+      "poplatky": "Zdarma"
+    },
+    {
+      "nazev": "Trinity Bank",
+      "kod": "2070",
+      "okamzite_platby": false,
+      "limit_platba_kc": 0,
+      "denni_limit_kc": "—",
+      "poplatky": "—"
     }
   ],
   "milniky": {
     "2018": "Spuštění okamžitých plateb (konec roku)",
     "2019": "První banky začínají nabízet (Air Bank, Česká spořitelna)",
-    "2025": "37-40% všech plateb je okamžitých",
+    "2025": "40% všech plateb je okamžitých",
     "2027": "Povinnost okamžitých plateb v EUR"
+  },
+  "zdroje": {
+    "cnb": {
+      "seznam_ucastniku": "https://www.cnb.cz/export/sites/cnb/cs/platebni-styk/.galleries/certis/download/seznam_okamzite_platby.pdf",
+      "popis_okamzitych_plateb": "https://www.cnb.cz/cs/platebni-styk/certis/popis-okamzitych-plateb/"
+    },
+    "penize_cz": {
+      "limity_bank": "https://www.penize.cz/osobni-ucty/451195-okamzite-platby-maji-sve-limity-prehled-stropu-podle-bank",
+      "mbank_poplatky": "https://www.penize.cz/osobni-ucty/468921-mbank-rusi-poplatek-za-okamzite-platby-zatim-jen-docasne",
+      "unicredit_spusteni": "https://www.penize.cz/osobni-ucty/470229-unicredit-bank-spusti-okamzite-platby-uz-je-na-seznamu-cnb"
+    },
+    "top_cz": {
+      "seznam_bank": "https://www.top.cz/okamzite-platby-seznam-bank-ktere-je-nabizeji"
+    },
+    "banky": {
+      "ceska_sporitelna": "https://www.csas.cz/cs/caste-dotazy/co-jsou-okamzite-platby",
+      "raiffeisenbank": "https://www.rb.cz/informacni-servis/platebni-styk/tuzemske-platby/okamzite-platby",
+      "komercni_banka": "https://www.kb.cz/cs/obcane/ucty/platby-a-hotovostni-sluzby/okamzite-platby"
+    }
+  },
+  "poplatky_info": {
+    "cnb_naklady": "0,10 Kč za platbu",
+    "promitani_ceny": "Náklady 0,10 Kč, které ČNB účtuje bankám za každou okamžitou platbu, se nepromítají přímo do poplatků pro klienty. Banky tyto náklady absorbují do své celkové cenové politiky - kompenzují je prostřednictvím příjmů z jiných služeb (kreditní karty, půjčky, poplatky za vedení účtu), úspor na digitalizaci a dlouhodobé strategie udržení klientů. Okamžité platby zdarma jsou pro banky marketingovým nástrojem a investicí do konkurenceschopnosti, přičemž minimální náklady 0,10 Kč jsou zanedbatelné ve srovnání s miliardovými náklady na akceptaci platebních karet."
   }
 }

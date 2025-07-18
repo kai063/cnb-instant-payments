@@ -212,7 +212,7 @@ export function Footer() {
         <div className="border-t border-slate-700 pt-8">
           <div className="bg-slate-800 rounded-lg p-6">
             <h4 className="text-white font-semibold mb-3">Detailní atribuce zdrojů</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
               <div>
                 <h5 className="text-slate-300 font-medium mb-2">Primární zdroje:</h5>
                 <ul className="space-y-1 text-slate-400">
@@ -230,6 +230,15 @@ export function Footer() {
                   <li>• Betaalvereniging - nizozemské údaje (88% dostupnost)</li>
                   <li>• Riksbank - švédské statistiky platebního styku</li>
                   <li>• Banque de France - francouzské údaje o růstu</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="text-slate-300 font-medium mb-2">Banky a limity:</h5>
+                <ul className="space-y-1 text-slate-400">
+                  <li>• <a href="https://www.cnb.cz/export/sites/cnb/cs/platebni-styk/.galleries/certis/download/seznam_okamzite_platby.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">ČNB - Seznam účastníků</a></li>
+                  <li>• <a href="https://www.penize.cz/osobni-ucty/451195-okamzite-platby-maji-sve-limity-prehled-stropu-podle-bank" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Peníze.cz - Limity bank</a></li>
+                  <li>• <a href="https://www.top.cz/okamzite-platby-seznam-bank-ktere-je-nabizeji" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Top.cz - Seznam bank</a></li>
+                  <li>• Oficiální stránky jednotlivých bank</li>
                 </ul>
               </div>
             </div>

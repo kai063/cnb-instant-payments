@@ -59,16 +59,16 @@ export function HomeHero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-wrap justify-center gap-4 mb-8"
           >
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-              <CheckCircle className="w-4 h-4 text-green-300" />
+            <div className="group flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <CheckCircle className="w-4 h-4 text-green-300 group-hover:scale-110 transition-transform" />
               <span className="text-white font-medium">Efektivnější</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-              <Clock className="w-4 h-4 text-blue-300" />
+            <div className="group flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <Clock className="w-4 h-4 text-blue-300 group-hover:scale-110 transition-transform" />
               <span className="text-white font-medium">Rychlejší</span>
             </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-              <DollarSign className="w-4 h-4 text-yellow-300" />
+            <div className="group flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <DollarSign className="w-4 h-4 text-yellow-300 group-hover:scale-110 transition-transform" />
               <span className="text-white font-medium">Úspornější</span>
             </div>
           </motion.div>
@@ -80,27 +80,27 @@ export function HomeHero() {
             transition={{ duration: 1, delay: 0.6 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto"
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+            <div className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300">
               <div className="flex items-center justify-center mb-3">
-                <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-blue-200" />
+                <TrendingUp className="w-6 h-6 md:w-8 md:h-8 text-blue-200 group-hover:text-blue-100 transition-colors" />
               </div>
-              <div className="text-2xl md:text-3xl font-bold mb-2">40%</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-100 transition-colors">40%</div>
               <div className="text-blue-100 text-xs md:text-sm">podíl ze všech plateb (6/2025)</div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300">
+            <div className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300">
               <div className="flex items-center justify-center mb-3">
-                <Zap className="w-6 h-6 md:w-8 md:h-8 text-blue-200" />
+                <Zap className="w-6 h-6 md:w-8 md:h-8 text-blue-200 group-hover:text-blue-100 transition-colors" />
               </div>
-              <div className="text-2xl md:text-3xl font-bold mb-2">1.58M</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-100 transition-colors">1.58M</div>
               <div className="text-blue-100 text-xs md:text-sm">okamžitých plateb denně (4/2025)</div>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+            <div className="group bg-white/10 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 sm:col-span-2 lg:col-span-1">
               <div className="flex items-center justify-center mb-3">
-                <Globe className="w-6 h-6 md:w-8 md:h-8 text-blue-200" />
+                <Globe className="w-6 h-6 md:w-8 md:h-8 text-blue-200 group-hover:text-blue-100 transition-colors" />
               </div>
-              <div className="text-2xl md:text-3xl font-bold mb-2">700M</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-blue-100 transition-colors">700M</div>
               <div className="text-blue-100 text-xs md:text-sm">plateb od startu (3/2024)</div>
             </div>
           </motion.div>

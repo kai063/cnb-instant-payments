@@ -15,9 +15,11 @@ import {
 interface BankData {
   nazev: string
   kod: string
-  limit_kc: number
+  okamzite_platby: boolean
+  limit_platba_kc: number
+  denni_limit_kc: string | number
+  poplatky: string
   rok_zavedeni?: number
-  supports_instant: boolean
   market_position: 'major' | 'medium' | 'small'
   adoption_status: 'early' | 'follower' | 'late' | 'none'
 }
@@ -26,9 +28,14 @@ interface ManualData {
   banky_okamzite_platby: Array<{
     nazev: string
     kod: string
-    limit_kc: number
+    okamzite_platby: boolean
+    limit_platba_kc: number
+    denni_limit_kc: string | number
+    poplatky: string
     rok_zavedeni?: number
   }>
+  zdroje?: any
+  poplatky_info?: any
 }
 
 export function BankingLandscape() {
@@ -64,39 +71,28 @@ export function BankingLandscape() {
   }
 
   // Enriched bank data
-  const banksData: BankData[] = [
-    ...data.banky_okamzite_platby.map(bank => ({
-      ...bank,
-      supports_instant: true,
-      market_position: bank.nazev.includes('ČSOB') || bank.nazev.includes('Česká spořitelna') || bank.nazev.includes('Komerční') 
-        ? 'major' as const
-        : bank.nazev.includes('Air Bank') || bank.nazev.includes('mBank') || bank.nazev.includes('MONETA')
-        ? 'medium' as const
-        : 'small' as const,
-      adoption_status: bank.rok_zavedeni === 2019 
-        ? 'early' as const
-        : bank.rok_zavedeni === 2020 
-        ? 'follower' as const
-        : 'late' as const
-    })),
-    {
-      nazev: 'Trinity Bank',
-      kod: '2070',
-      limit_kc: 0,
-      supports_instant: false,
-      market_position: 'small' as const,
-      adoption_status: 'none' as const
-    }
-  ]
+  const banksData: BankData[] = data.banky_okamzite_platby.map(bank => ({
+    ...bank,
+    market_position: bank.nazev.includes('ČSOB') || bank.nazev.includes('Česká spořitelna') || bank.nazev.includes('Komerční') 
+      ? 'major' as const
+      : bank.nazev.includes('Air Bank') || bank.nazev.includes('mBank') || bank.nazev.includes('MONETA')
+      ? 'medium' as const
+      : 'small' as const,
+    adoption_status: bank.rok_zavedeni === 2019 
+      ? 'early' as const
+      : bank.rok_zavedeni === 2020 
+      ? 'follower' as const
+      : bank.okamzite_platby ? 'late' as const : 'none' as const
+  }))
 
   // Sort banks by limit (descending) and then by support status
   const sortedBanks = banksData.sort((a, b) => {
-    if (a.supports_instant && !b.supports_instant) return -1
-    if (!a.supports_instant && b.supports_instant) return 1
-    return b.limit_kc - a.limit_kc
+    if (a.okamzite_platby && !b.okamzite_platby) return -1
+    if (!a.okamzite_platby && b.okamzite_platby) return 1
+    return b.limit_platba_kc - a.limit_platba_kc
   })
 
-  const supportingBanks = banksData.filter(b => b.supports_instant)
+  const supportingBanks = banksData.filter(b => b.okamzite_platby)
   const coveragePercent = Math.round((supportingBanks.length / banksData.length) * 100)
   
   const getLimitCategory = (limit: number) => {
@@ -104,6 +100,12 @@ export function BankingLandscape() {
     if (limit >= 400000) return { label: 'Standardní', color: 'text-blue-700 bg-blue-100 border-blue-300' }
     if (limit > 0) return { label: 'Nízký', color: 'text-blue-600 bg-blue-50 border-blue-200' }
     return { label: 'Nepodporuje', color: 'text-gray-600 bg-gray-100 border-gray-300' }
+  }
+
+  const formatDailyLimit = (limit: string | number) => {
+    if (typeof limit === 'string') return limit
+    if (limit >= 1000000) return `${(limit / 1000000).toFixed(1)}M Kč`
+    return `${(limit / 1000).toLocaleString('cs-CZ')}K Kč`
   }
 
 
@@ -169,53 +171,70 @@ export function BankingLandscape() {
               <thead>
                 <tr className="border-b border-blue-200 bg-gradient-to-r from-blue-50 to-blue-100">
                   <th className="text-left py-2 md:py-3 px-2 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Banka</th>
-                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Podpora</th>
-                  <th className="text-right py-2 md:py-3 px-2 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Limit</th>
-                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-sm md:text-base">Kategorie</th>
-                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-sm md:text-base hidden sm:table-cell">Rok zavedení</th>
+                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-xs md:text-sm">Podpora</th>
+                  <th className="text-right py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-xs md:text-sm">Limit/platba</th>
+                  <th className="text-right py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-xs md:text-sm">Denní limit</th>
+                  <th className="text-center py-2 md:py-3 px-1 md:px-4 font-semibold text-blue-900 text-xs md:text-sm">Poplatky</th>
                 </tr>
               </thead>
               <tbody>
                 {sortedBanks.map((bank, index) => {
-                  const category = getLimitCategory(bank.limit_kc)
+                  const category = getLimitCategory(bank.limit_platba_kc)
                   return (
-                    <tr key={index} className="border-b border-blue-100 hover:bg-blue-50/30">
+                    <tr 
+                      key={index} 
+                      className="border-b border-blue-100 hover:bg-blue-50/50 transition-colors duration-200 group"
+                    >
                       <td className="py-2 md:py-3 px-2 md:px-4">
-                        <div className="font-medium text-gray-900 text-sm md:text-base">{bank.nazev}</div>
-                        <div className="text-xs md:text-sm text-gray-500">{bank.kod}</div>
+                        <div className="font-medium text-gray-900 text-xs md:text-sm group-hover:text-blue-700 transition-colors">{bank.nazev}</div>
+                        <div className="text-xs text-gray-500 group-hover:text-blue-600 transition-colors">{bank.kod}</div>
                       </td>
                       <td className="py-2 md:py-3 px-1 md:px-4 text-center">
-                        {bank.supports_instant ? (
-                          <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-green-500 mx-auto" />
+                        {bank.okamzite_platby ? (
+                          <CheckCircle 
+                            className="w-4 h-4 text-green-500 mx-auto group-hover:scale-110 transition-transform" 
+                            title="Podporuje okamžité platby"
+                          />
                         ) : (
-                          <XCircle className="w-4 md:w-5 h-4 md:h-5 text-red-500 mx-auto" />
+                          <XCircle 
+                            className="w-4 h-4 text-red-500 mx-auto group-hover:scale-110 transition-transform" 
+                            title="Nepodporuje okamžité platby"
+                          />
                         )}
                       </td>
-                      <td className="py-2 md:py-3 px-2 md:px-4 text-right">
-                        {bank.supports_instant ? (
-                          <span className="font-semibold text-gray-900 text-xs md:text-sm">
-                            {bank.limit_kc >= 1000000 
-                              ? `${(bank.limit_kc / 1000000).toFixed(1)}M`
-                              : `${(bank.limit_kc / 1000).toLocaleString('cs-CZ')}K`
+                      <td className="py-2 md:py-3 px-1 md:px-4 text-right">
+                        {bank.okamzite_platby ? (
+                          <span className="font-semibold text-gray-900 text-xs">
+                            {bank.limit_platba_kc >= 1000000 
+                              ? `${(bank.limit_platba_kc / 1000000).toFixed(1)}M`
+                              : `${(bank.limit_platba_kc / 1000).toLocaleString('cs-CZ')}K`
                             }
                           </span>
                         ) : (
-                          <span className="text-gray-400 text-xs md:text-sm">—</span>
+                          <span className="text-gray-400 text-xs">—</span>
+                        )}
+                      </td>
+                      <td className="py-2 md:py-3 px-1 md:px-4 text-right">
+                        {bank.okamzite_platby ? (
+                          <span className="text-gray-900 text-xs">
+                            {typeof bank.denni_limit_kc === 'number' 
+                              ? formatDailyLimit(bank.denni_limit_kc)
+                              : bank.denni_limit_kc
+                            }
+                          </span>
+                        ) : (
+                          <span className="text-gray-400 text-xs">—</span>
                         )}
                       </td>
                       <td className="py-2 md:py-3 px-1 md:px-4 text-center">
-                        <Badge className={`text-xs ${category.color} border px-1 md:px-2`}>
-                          <span className="hidden md:inline">{category.label}</span>
-                          <span className="md:hidden">
-                            {category.label === 'Vysoký' ? 'V' : 
-                             category.label === 'Standardní' ? 'S' : 
-                             category.label === 'Nízký' ? 'N' : 'X'}
-                          </span>
-                        </Badge>
-                      </td>
-                      <td className="py-2 md:py-3 px-1 md:px-4 text-center hidden sm:table-cell">
-                        <span className="text-xs md:text-sm text-blue-600">
-                          {bank.rok_zavedeni || '—'}
+                        <span className={`text-xs px-2 py-1 rounded ${
+                          bank.poplatky === 'Zdarma' 
+                            ? 'bg-green-100 text-green-700'
+                            : bank.poplatky.includes('—')
+                            ? 'bg-gray-100 text-gray-500'
+                            : 'bg-yellow-100 text-yellow-700'
+                        }`}>
+                          {bank.poplatky}
                         </span>
                       </td>
                     </tr>
@@ -227,14 +246,7 @@ export function BankingLandscape() {
         </Card>
       </motion.div>
 
-      {/* Key insights */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        viewport={{ once: true }}
-      >
-      </motion.div>
+
     </div>
   )
 }

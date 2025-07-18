@@ -157,21 +157,21 @@ export function KeyStats() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="p-3 md:p-4 lg:p-6 hover:shadow-lg transition-all duration-300 border-0 bg-white hover:scale-105">
+              <Card className="group p-3 md:p-4 lg:p-6 hover:shadow-lg transition-all duration-300 border-0 bg-white hover:scale-105">
                 <div className="flex items-start justify-between mb-3 md:mb-4">
-                  <div className={`p-2 md:p-3 rounded-lg ${stat.bgColor}`}>
-                    <stat.icon className={`w-4 h-4 md:w-6 md:h-6 ${stat.color}`} />
+                  <div className={`p-2 md:p-3 rounded-lg ${stat.bgColor} group-hover:scale-110 transition-transform`}>
+                    <stat.icon className={`w-4 h-4 md:w-6 md:h-6 ${stat.color} group-hover:animate-pulse`} />
                   </div>
                 </div>
                 
                 <div className="space-y-1 md:space-y-2">
-                  <h3 className="text-xs md:text-sm font-medium text-gray-600">
+                  <h3 className="text-xs md:text-sm font-medium text-gray-600 group-hover:text-gray-800 transition-colors">
                     {stat.title}
                   </h3>
-                  <div className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900">
+                  <div className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
                     {stat.value}
                   </div>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-500 group-hover:text-gray-700 transition-colors">
                     {stat.change}
                   </p>
                 </div>

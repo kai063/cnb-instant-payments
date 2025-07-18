@@ -160,16 +160,16 @@ export function TimelineSection() {
               <div className={`ml-12 md:ml-0 w-full md:w-5/12 ${
                 index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
               }`}>
-                <Card className={`p-4 md:p-6 border-2 shadow-lg ${
+                <Card className={`group p-4 md:p-6 border-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl ${
                   event.status === 'current' 
-                    ? 'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-800 text-white' 
+                    ? 'bg-gradient-to-br from-blue-600 to-blue-700 border-blue-800 text-white hover:from-blue-700 hover:to-blue-800' 
                     : event.status === 'future'
-                    ? 'bg-blue-50 border-blue-200'
-                    : 'bg-white border-blue-200'
+                    ? 'bg-blue-50 border-blue-200 hover:bg-blue-100'
+                    : 'bg-white border-blue-200 hover:border-blue-300 hover:bg-blue-50'
                 }`}>
                   <div className="flex items-start gap-3 md:gap-4">
-                    <div className={`p-2 md:p-3 rounded-lg ${event.bgColor} flex-shrink-0`}>
-                      <event.icon className={`w-4 h-4 md:w-6 md:h-6 ${event.color}`} />
+                    <div className={`p-2 md:p-3 rounded-lg ${event.bgColor} flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                      <event.icon className={`w-4 h-4 md:w-6 md:h-6 ${event.color} group-hover:animate-pulse`} />
                     </div>
                     
                     <div className="flex-1 min-w-0">

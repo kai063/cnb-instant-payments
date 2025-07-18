@@ -9,7 +9,7 @@
     "current_month": "2025-06",
     "instant_payments_daily": 1625473,
     "regular_payments_daily": 2439049,
-    "instant_share_percent": 42.1,
+    "instant_share_percent": 40.0,
     "daily_turnover_billions": 1474.0
   },
   "growth_summary": {
@@ -24,8 +24,8 @@
     },
     "podil_procenta": {
       "prvni": 0.0004734071198727699,
-      "posledni": 42.1188313969912,
-      "maximum": 42.1188313969912,
+      "posledni": 40.0,
+      "maximum": 40.0,
       "prumer": 17.01499399765966
     },
     "rust_nasobek": 85551.21052631579,

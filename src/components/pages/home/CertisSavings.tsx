@@ -74,9 +74,9 @@ export function CertisSavings() {
       description: 'Vysoké poplatky pro obchodníky'
     },
     {
-      method: 'Bankovní převody',
-      fee: '5-50 Kč',
-      description: 'Podle tarifu banky, často pomalé'
+      method: 'Okamžité platby od komerčních bank',
+      fee: 'Většina zdarma',
+      description: 'Většina bank nabízí bez poplatků'
     }
   ]
 
@@ -143,9 +143,17 @@ export function CertisSavings() {
               ))}
             </div>
             
-            <div className="text-center p-3 bg-blue-50 rounded-lg">
+            <div className="text-center p-3 bg-blue-50 rounded-lg mb-4">
               <p className="text-sm text-blue-800">
-                <strong>Příklad:</strong> Při platbě 1000 Kč → CERTIS: 0,10 Kč • Karta: ~3 Kč • PayPal: ~44 Kč
+                <strong>Příklad:</strong> Při platbě 1000 Kč → CERTIS: 0,10 Kč • Banky: většina zdarma • Karta: ~3 Kč • PayPal: ~44 Kč
+              </p>
+            </div>
+
+            {/* Fee explanation */}
+            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3">Kde se promítá cena za okamžité platby</h4>
+              <p className="text-sm text-gray-800 leading-relaxed mb-3">
+                Náklady 0,10 Kč, které ČNB účtuje bankám za každou okamžitou platbu, se nepromítají přímo do poplatků pro klienty. Banky tyto náklady absorbují do své celkové cenové politiky - kompenzují je prostřednictvím příjmů z jiných služeb (kreditní karty, půjčky, poplatky za vedení účtu), úspor na digitalizaci a dlouhodobé strategie udržení klientů. Okamžité platby zdarma jsou pro banky marketingovým nástrojem a investicí do konkurenceschopnosti, přičemž minimální náklady 0,10 Kč jsou zanedbatelné ve srovnání s miliardovými náklady na akceptaci platebních karet.
               </p>
             </div>
           </Card>
@@ -165,25 +173,25 @@ export function CertisSavings() {
             <p className="text-gray-600 max-w-3xl mx-auto mb-8">
               Okamžité platby přinášejí úspory pro českou ekonomiku. 
               Odhady vycházejí z rozdílu nákladů CERTIS (0,10 Kč za platbu) oproti 
-              poplatkům platebních karet a služeb podle dat ČNB a veřejných tarifů.
+              poplatkům platebních kart a služeb podle dat ČNB a veřejných tarifů.
             </p>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
-              <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-3 md:p-4 border border-blue-200">
-                <div className="text-lg md:text-xl font-bold text-blue-700 mb-1">přes 200 mil. Kč</div>
-                <div className="text-blue-600 text-xs md:text-sm">Dosavadní úspory od roku 2019</div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-100 to-blue-200 rounded-xl p-3 md:p-4 border border-blue-300">
-                <div className="text-lg md:text-xl font-bold text-blue-800 mb-1">přes 100 mil. Kč</div>
-                <div className="text-blue-700 text-xs md:text-sm">Konzervativní odhad ročních úspor</div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-3 md:p-4 border border-blue-800">
-                <div className="text-lg md:text-xl font-bold text-white mb-1">přes 500 mil. Kč</div>
-                <div className="text-blue-100 text-xs md:text-sm">Potenciál při vyšší adopci</div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-700 to-blue-800 rounded-xl p-3 md:p-4 border border-blue-900">
-                <div className="text-lg md:text-xl font-bold text-white mb-1">Rostoucí</div>
-                <div className="text-blue-100 text-xs md:text-sm">Trend úspor s časem</div>
+    
+
+            {/* CNB Quote */}
+            <div className="mb-8 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-l-4 border-blue-600">
+              <blockquote className="text-blue-900 italic text-sm md:text-base leading-relaxed">
+                "Platební karty stojí českou ekonomiku miliardy korun ročně"
+              </blockquote>
+              <div className="mt-3 text-xs text-blue-700">
+                — <a 
+                  href="https://www.cnb.cz/cs/verejnost/servis-pro-media/autorske-clanky-rozhovory-s-predstaviteli-cnb/Okamzite-platby-nevyuzita-sance/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  ČNB: Okamžité platby - nevyužitá šance
+                </a>
               </div>
             </div>
 
